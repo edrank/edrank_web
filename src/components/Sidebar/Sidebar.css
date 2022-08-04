@@ -1,0 +1,158 @@
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  top: 60px;
+  max-height: calc(100vh - 36.19px);
+  box-shadow: 0 5px 10px rgb(226, 226, 226);
+  overflow-x: hidden;
+  z-index: 500;
+  background-color: var(--backgroundColor);
+  border-top: 1px solid rgb(235, 235, 235);
+}
+
+.sidebar .sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.sidebar a {
+  color: black;
+}
+
+.closebtn {
+  display: none;
+}
+
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+
+  background-color: lightgreen;
+}
+
+.sidebar-option:hover {
+  background-color: var(--red);
+  color: white;
+  box-shadow: 0 4px 6px -6px black;
+  transition: all .2s ease-in-out;
+}
+
+.sidebar-option.active {
+  background-color: var(--red);
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+.sidebar-option-icon {
+  transition: all .2s ease-in-out;
+  color: var(--red);
+  width: 28px;
+}
+
+.sidebar-option.active .sidebar-option-icon {
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+.sidebar-option:hover .sidebar-option-icon {
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+.sidebar-option-name {
+  /* margin-left: 15px; */
+}
+
+.sidebar-option.about_app {
+  position: absolute;
+  bottom: 0;
+  width: 92%;
+}
+
+.sidebar-option.about_app_replace {
+  opacity: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .sidebar {
+    min-height: calc(100vh - 60px);
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    /* z-index: 1; Stay on top */
+    top: 60px;
+    /* Stay at the top */
+    left: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+  }
+
+  #sidebar.sidebar.active {
+    width: 240px;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    display: block;
+    /* background-color: var(--red); */
+    color: white;
+    font-size: 1.8rem;
+    padding: 5px;
+    margin-left: 50px;
+  }
+
+  .sidebar-option {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    transition: 0.2s;
+    width: 224px;
+  }
+
+  .sidebar-option.about_app {
+    min-width: 224px;
+  }
+
+  .sidebar-option:hover {
+    transition: all 0.1s ease;
+    background-color: var(--red);
+    color: white;
+    box-shadow: 0 4px 6px -6px black;
+  }
+}
+
+@media screen and (max-height: 487px) {
+  .sidebar-option.about_app {
+    position: static;
+    bottom: 0;
+    width: 224px;
+  }
+}
+
+.inactive {
+  transform: translateX(-100%);
+  width: 0;
+  transition: all .2s ease-in-out;
+}
