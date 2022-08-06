@@ -15,7 +15,9 @@ function CollegeAdminRouter() {
 					path='/college-admin/dashboard'
 					element={<Dashboard />}
 				/> */}
-				<Outlet />
+				<div className="college-admin-route-child">
+					<Outlet />
+				</div>
 			</div>
 		</>
 	);
