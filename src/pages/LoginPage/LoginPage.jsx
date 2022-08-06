@@ -59,12 +59,12 @@ export default function LoginPage() {
 		{ value: 'SUPER_ADMIN', label: 'Super Admin' },
 	];
 	return (
-		<div className='login-page-main'>
-			<form className='login-form-wrapper' onSubmit={handleSubmit(onSubmit)}>
-				<div className='login-form-div'>
+		<div className='login-page-main form-page-main-wrapper'>
+			<form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
+				<div className='form-div'>
 					<h1>Enter you details</h1>
 				</div>
-				<div className='login-form-div'>
+				<div className='form-div'>
 					<label htmlFor='email'>
 						Email
 						<input
@@ -78,7 +78,7 @@ export default function LoginPage() {
 					</label>
 					<div className='form-validation-error'>{errors.email?.message}</div>
 				</div>
-				<div className='login-form-div'>
+				<div className='form-div'>
 					<label htmlFor='password'>
 						Password
 						<input
@@ -94,7 +94,7 @@ export default function LoginPage() {
 						</div>
 					</label>
 				</div>
-				<div className='login-form-div'>
+				<div className='form-div'>
 					<label htmlFor='loginAs'>
 						Login as:
 						{/* <Select options={loginOptions} /> */}
@@ -117,7 +117,7 @@ export default function LoginPage() {
 						</div>
 					</label>
 				</div>
-				<div className='login-form-div'>
+				<div className='form-div'>
 					<input type='submit' value='Proceed' />
 				</div>
 			</form>

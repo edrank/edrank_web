@@ -6,6 +6,7 @@ export const restUrl = `${serverUrl}/api/v1`;
 const loginPage = '/login';
 const dashboard = '/dashboard';
 const forgotPasswordPage = '/forgot-password';
+const changePasswordPage = '/change-password';
 const notFoundPage = '/not-found';
 const profilePage = '/profile';
 
@@ -34,6 +35,7 @@ export default Object.freeze({
 	superAdminPath,
 	loginPage,
 	forgotPasswordPage,
+	changePasswordPage,
 	notFoundPage,
 	profilePage,
 	collegeAdmin: collegeAdminEndpoints,

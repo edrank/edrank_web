@@ -1,4 +1,4 @@
-import { restUrl } from 'constants/endpoints';
+import endpoints, { restUrl } from 'constants/endpoints';
 import { Navbar } from 'components';
 import { Link } from 'react-router-dom';
 import './ProfilePage.scss';
@@ -49,7 +49,7 @@ function ProfilePage() {
 					<div className='thead'>Email</div>
 					<div className='tbody'>{user.email ?? 'Loading'}</div>
 					<div className='change-password-btn'>
-						<Link to='/change-password'>Change Your Password</Link>
+						<Link to={endpoints.changePasswordPage}>Change Your Password</Link>
 					</div>
 				</div>
 			</div>
