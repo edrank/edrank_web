@@ -7,7 +7,7 @@ function Navbar() {
 			<div className='navbar-main-burger-menu'>
 				<i className='fa-solid fa-bars'></i>
 			</div>
-			<div className='navbar-main-logo'>EDURANK</div>
+			<div className='navbar-main-logo'>EDRANK</div>
 			<div className='navbar-main-user-menu'>
 				<Link to='/profile'>
 					<i className='fa-solid fa-circle-user'></i>
