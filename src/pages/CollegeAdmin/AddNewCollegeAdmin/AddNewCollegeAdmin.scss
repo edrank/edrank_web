@@ -1,0 +1,39 @@
+.add-new-college-admin-main {
+	// background-color: lightblue;
+
+	.add-new-college-admin-form {
+		// background-color: antiquewhite;
+		padding: 1rem 0;
+		// display: flex;
+		gap: 3rem;
+
+		.form-div {
+			margin-top: 0.6rem;
+
+			label {
+				font-size: 0.9rem;
+			}
+			input {
+				display: block;
+				padding: 0.5rem 1rem;
+				// font-size: 1rem;
+
+				margin-top: 5px;
+				width: 100%;
+				max-width: 350px;
+				// margin-left: 10px;
+				background-color: rgb(255, 186, 95);
+				border: 2px solid rgb(180, 180, 180);
+				border-radius: .25rem;
+				color: black;
+			}
+			input[type=submit] {
+				font-weight: bold;
+				// font-size: 1rem;
+				border: none;
+				padding: .6rem 0;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
