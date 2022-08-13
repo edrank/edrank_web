@@ -1,9 +1,12 @@
+import { restUrl } from 'constants/endpoints';
 import axios from 'axios';
+import { toast } from 'react-toastify'
 
-const SERVER_BASE_URL = 'http://localhost:5000/api/v1'
+const SERVER_BASE_URL = restUrl;
 
-const makeRequest = (apiEndPoint, method, data, customHeaders) => {
-    const authToken = localStorage.getItem("token") ?? '';
+export const makeRequest = async (apiEndPoint, method, data, customHeaders) => {
+    const authToken = 'Bearer ' + localStorage.getItem("token") ?? '';
+    console.log(customHeaders)
     let apiResponse;
     try {
         switch (method) {
@@ -14,27 +17,31 @@ const makeRequest = (apiEndPoint, method, data, customHeaders) => {
                         ...customHeaders
                     }
                 });
+                break;
+
             case 'POST':
-                apiResponse = await axios.post(`${SERVER_BASE_URL}/${apiEndPoint}`, {
+                apiResponse = await axios.post(`${SERVER_BASE_URL}/${apiEndPoint}`, data, {
                     headers: {
                         "Authorization": authToken,
                         ...customHeaders
                     },
-                    data
                 });
+                break;
             case 'PUT':
 
-                apiResponse = await axios.put(`${SERVER_BASE_URL}/${apiEndPoint}`, {
+                apiResponse = await axios.put(`${SERVER_BASE_URL}/${apiEndPoint}`, data, {
                     headers: {
                         "Authorization": authToken,
                         ...customHeaders
                     },
-                    data
                 });
+                break;
+            default: console.log('Invalid API method');
         }
 
     } catch (error) {
         console.log("API ERROR: ", error);
+        toast(error.response.data.error, { type: 'error' })
         return error;
     }
     console.log("API RESPONSE: ", apiResponse);

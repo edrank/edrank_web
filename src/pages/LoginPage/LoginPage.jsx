@@ -6,6 +6,8 @@ import './LoginPage.scss';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { tenantTypeKeyPairMap } from 'constants/tenantTypeKeyPairMap';
+import { FormGenerator } from 'components';
+import { makeRequest } from 'services/api';
 
 export default function LoginPage() {
 	// const [tenantType, setTenantType] = useState(null);
@@ -26,28 +28,40 @@ export default function LoginPage() {
 			password: password,
 		};
 
-		console.log(tenantTypeKeyPairMap["COLLEGE_ADMIN"]);
+		console.log(tenantTypeKeyPairMap['COLLEGE_ADMIN']);
 
-
-		try {
-			axios
-				.post(restUrl + '/login', requestBody, {
-					headers: {
-						// 'Content-Type': 'application/json',
-						'x-edrank-tenant-type': tenantType.value,
-					},
-				})
-				.then(response => {
-					console.log(response);
-					localStorage.setItem('token', response.data.data.access_token);
-					navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
-					console.log('REDIRECTING TO DASHBOARD');
-					console.log(response.data.data.tenant_type)
-					console.log(tenantTypeKeyPairMap[response.data.data.tenant_type]);
-				});
-		} catch (error) {
-			console.log(error);
+		async function postData() {
+			console.log('tenantType: 12345678', '99', tenantType.value);
+			const response = await makeRequest('login', 'POST', requestBody, {
+				'x-edrank-tenant-type': tenantType.value,
+			});
+			console.log('RESPONSE');
+			console.log(response);
+			localStorage.setItem('token', response.data.data.access_token);
+			localStorage.setItem('tenant_type', response.data.data.tenant_type);
+			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
 		}
+		postData();
+		// try {
+		// 	axios
+		// 		.post(restUrl + '/login', requestBody, {
+		// 			headers: {
+		// 				// 'Content-Type': 'application/json',
+		// 				'x-edrank-tenant-type': tenantType.value,
+		// 			},
+		// 		})
+		// 		.then(response => {
+		// 			console.log(response);
+		// 			localStorage.setItem('token', response.data.data.access_token);
+		// 			localStorage.setItem('tenant_type', response.data.data.tenant_type);
+		// 			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
+		// 			console.log('REDIRECTING TO DASHBOARD');
+		// 			console.log(response.data.data.tenant_type);
+		// 			console.log(tenantTypeKeyPairMap[response.data.data.tenant_type]);
+		// 		});
+		// } catch (error) {
+		// 	console.log(error);
+		// }
 	};
 
 	const loginOptions = [
@@ -58,9 +72,37 @@ export default function LoginPage() {
 		{ value: 'HEI', label: 'HEI Authority/Regulators' },
 		{ value: 'SUPER_ADMIN', label: 'Super Admin' },
 	];
+
+	const formObject = [
+		{
+			inputType: 'email',
+			inputKey: 'email',
+			label: 'Email: ',
+			required: true,
+		},
+		{
+			inputType: 'password',
+			inputKey: 'password',
+			label: 'Password: ',
+			required: true,
+		},
+		{
+			inputType: 'select',
+			inputKey: 'tenantType',
+			label: 'Login as: ',
+			required: true,
+			options: loginOptions,
+		},
+	];
+
 	return (
 		<div className='login-page-main form-page-main-wrapper'>
-			<form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
+			<FormGenerator
+				formClass='form-wrapper'
+				onSubmit={onSubmit}
+				formObject={formObject}
+			/>
+			{/* <form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-div'>
 					<h1>Enter you details</h1>
 				</div>
@@ -97,7 +139,6 @@ export default function LoginPage() {
 				<div className='form-div'>
 					<label htmlFor='loginAs'>
 						Login as:
-						{/* <Select options={loginOptions} /> */}
 						<Controller
 							name='tenantType'
 							control={control}
@@ -107,7 +148,6 @@ export default function LoginPage() {
 									name='tenantType'
 									inputId='tenantType'
 									options={loginOptions}
-									// getOptionValue={option => option.value}
 									{...field}
 								/>
 							)}
@@ -120,7 +160,7 @@ export default function LoginPage() {
 				<div className='form-div'>
 					<input type='submit' value='Proceed' />
 				</div>
-			</form>
+			</form> */}
 		</div>
 	);
 }

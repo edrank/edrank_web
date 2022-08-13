@@ -1,39 +1,21 @@
-import endpoints, { restUrl } from 'constants/endpoints';
+import endpoints from 'constants/endpoints';
 import { Navbar } from 'components';
 import { Link } from 'react-router-dom';
 import './ProfilePage.scss';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { makeRequest } from 'services';
 
 function ProfilePage() {
 	const [user, setUser] = useState({});
 
-	// fetch(restUrl + '/my-profile', {
-	// 	headers: {
-	// 		Authorization: 'Bearer ' + localStorage.getItem('token'),
-	// 	},
-	// }).then(response => {
-	// 	console.log(response);
-	// });
-
 	useEffect(() => {
-		try {
-			axios
-				.get(restUrl + '/my-profile', {
-					headers: {
-						Authorization: 'Bearer ' + localStorage.getItem('token'),
-					},
-				})
-				.then(response => {
-					console.log(response);
-					setUser(response.data.data.profile);
-				})
-				.catch(error => {
-					console.log(error);
-				});
-		} catch (error) {
-			console.log(error);
+		console.log('useEffect');
+		async function fetchData() {
+			const response = await makeRequest('my-profile', 'GET');
+			console.log(response?.data.data);
+			setUser(response?.data.data.profile);
 		}
+		fetchData();
 	}, []);
 
 	return (

@@ -6,16 +6,28 @@ import { Outlet } from 'react-router-dom';
 function CollegeAdminRouter() {
 	// console.log('COLLEGE ADMIN BASE');
 	// console.log(collegeAdminEndpoints.base);
+	const toggleSidebar = () => {
+		console.log("SIDEBAR TOGGLE")
+		document.getElementById('sidebar').classList.toggle('active');
+	};
+
+	const vw = Math.max(
+		document.documentElement.clientWidth || 0,
+		window.innerWidth || 0,
+	);
+	
+	const isDesktop = vw <= 960 ? false : true;
+	
 	return (
 		<>
-			<Navbar />
+			<Navbar toggleSidebar={toggleSidebar} />
 			<div className='college-admin-router-main page-view-wrapper'>
-				<Sidebar />
+				<Sidebar toggleSidebar={toggleSidebar} isDesktop={isDesktop} />
 				{/* <Route
 					path='/college-admin/dashboard'
 					element={<Dashboard />}
 				/> */}
-				<div className="college-admin-route-child">
+				<div className='college-admin-route-child'>
 					<Outlet />
 				</div>
 			</div>

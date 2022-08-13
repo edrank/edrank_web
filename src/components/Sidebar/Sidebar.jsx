@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { SidebarData, SideBarPathIndex } from './SidebarData';
 import { Link, useLocation } from 'react-router-dom';
 
-function Sidebar() {
+function Sidebar({ isDesktop, toggleSidebar }) {
 	let location = useLocation();
 	const [selectedOption, setSelectedOption] = useState(
 		SideBarPathIndex.collegeAdmin[location.pathname],
@@ -22,11 +22,22 @@ function Sidebar() {
 					<Link
 						to={item.path}
 						key={index}
-						onClick={() => setSelectedOption(index)}
+						onClick={() => {
+							setSelectedOption(index);
+							// if (isDesktop) 
+							toggleSidebar();
+						}}
 					>
-						<div className='sidebar-option'>
+						<div
+							className={
+								selectedOption === index
+									? 'sidebar-option active'
+									: 'sidebar-option'
+							}
+						>
 							<div className='sidebar-option-icon'>
-								<i className={item.icon}></i>
+								{/* <i className={item.icon}></i> */}
+								<img src={item.icon} alt="" />
 							</div>
 							<div className='sidebar-option-name'>{item.option_name}</div>
 						</div>
