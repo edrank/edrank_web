@@ -4,3 +4,5 @@ export { default as CollegeAdminRouter } from './Routers/CollegeAdminRouter/Coll
 export { default as StudentRouter } from './Routers/StudentRouter/StudentRouter'
 export { default as STPListCard } from './STPListCard/STPListCard'
 export { default as FormGenerator } from './FormGenerator/FormGenerator'
+export { default as StudentDashboard } from './StudentDashboard/StudentDashboard'
+export { default as CollegeAdminDashboard } from './CollegeAdminDashboard/CollegeAdminDashboard'

@@ -5,8 +5,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Sidebar({ isDesktop, toggleSidebar }) {
 	let location = useLocation();
+	const tenant_type = localStorage.getItem('tenant_type');
 	const [selectedOption, setSelectedOption] = useState(
-		SideBarPathIndex.collegeAdmin[location.pathname],
+		SideBarPathIndex[tenant_type][location.pathname],
 	);
 
 	console.log(selectedOption);
@@ -17,7 +18,7 @@ function Sidebar({ isDesktop, toggleSidebar }) {
 				<div className='sidebar-option-name'>name</div>
 			</div> */}
 			{/* map on array of objects in SidebarData according to the tenant */}
-			{SidebarData.collegeAdmin.map((item, index) => {
+			{SidebarData[tenant_type].map((item, index) => {
 				return (
 					<Link
 						to={item.path}

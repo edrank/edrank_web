@@ -18,6 +18,7 @@ const entityType = ':entityType';
 // const viewTeachers = ':teachers'
 // const viewStudents = ':students'
 // const viewParents = ':parents'
+const collegeAdmins = '/view-all-college-admins'
 
 // super admin
 const superAdminPath = '/super-admin';
@@ -33,6 +34,7 @@ export const collegeAdminEndpoints = addPrefixToPaths(
 		dashboard: dashboard,
 		addNewCollegeAdmin: addNewCollegeAdmin,
 		viewStpList: viewStpList,
+		collegeAdmins: collegeAdmins
 		// viewTeachers: viewTeachers,
 		// viewStudents: viewStudents,
 		// viewParents: viewParents,

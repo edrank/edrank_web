@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { restUrl } from 'constants/endpoints';
 // import { useState } from 'react';
 import './LoginPage.scss';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { tenantTypeKeyPairMap } from 'constants/tenantTypeKeyPairMap';
 import { FormGenerator } from 'components';
@@ -12,12 +12,12 @@ import { makeRequest } from 'services/api';
 export default function LoginPage() {
 	// const [tenantType, setTenantType] = useState(null);
 	let navigate = useNavigate();
-	const {
-		register,
-		handleSubmit,
-		control,
-		formState: { errors },
-	} = useForm();
+	// const {
+	// 	register,
+	// 	handleSubmit,
+	// 	control,
+	// 	formState: { errors },
+	// } = useForm();
 
 	const onSubmit = data => {
 		console.log('data');
@@ -39,6 +39,7 @@ export default function LoginPage() {
 			console.log(response);
 			localStorage.setItem('token', response.data.data.access_token);
 			localStorage.setItem('tenant_type', response.data.data.tenant_type);
+			console.log('tenant_type', response.data.data.tenant_type);
 			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
 		}
 		postData();

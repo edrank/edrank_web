@@ -1,65 +1,80 @@
-// admin icons
+import { collegeAdminEndpoints, collegeAdminPath, studentEndpoints } from 'constants/endpoints';
+
+// common icons
 import iconDashboard from 'assets/images/icon-dashboard-1.png';
+// admin icons
 import iconAddNew from 'assets/images/icon-add-new.png';
 import iconTeacher from 'assets/images/icon-teacher-1.png';
 import iconStudent from 'assets/images/icon-student.png';
 import iconParent from 'assets/images/icon-parents.png';
 import iconCollegeAdmin from 'assets/images/icon-college-admin.png';
 
-const collegeAdminLink = '/college-admin';
+// student icons
+import iconFeedback from 'assets/images/icon-feedback.png';
 
 export const SideBarPathIndex = {
-	collegeAdmin: {
-		'/college-admin/dashboard': 0,
-		'/college-admin/add-new-college-admin': 1,
-		'/college-admin//view-all/teachers': 2,
-		'/college-admin/view-all/students': 3,
-		'/college-admin/view-all/parents': 4,
-		'/college-admin/college-admins': 5,
+	COLLEGE_ADMIN: {
+		[collegeAdminEndpoints.dashboard]: 0,
+		[collegeAdminEndpoints.addNewCollegeAdmin]: 1,
+		[collegeAdminPath + '/teachers']: 2,
+		[collegeAdminPath + '/students']: 3,
+		[collegeAdminPath + '/parents']: 4,
+		[collegeAdminEndpoints.collegeAdmins]: 5,
 		// '/college-admin/about': 6,
 	},
-	superAdmin: {
+	SUPER_ADMIN: {
 		'/super-admin/dashboard': 0,
+	},
+	STUDENT: {
+		[studentEndpoints.base]: 0,
+		[studentEndpoints.dashboard]: 0,
+		[studentEndpoints.provideFeedback]: 1,
 	},
 };
 
 export const SidebarData = {
-	collegeAdmin: [
+	COLLEGE_ADMIN: [
 		{
 			option_name: 'Dashboard',
-			path: collegeAdminLink + '/dashboard',
+			path: collegeAdminPath + '/dashboard',
 			icon: iconDashboard,
-			cName: 'sidebar_option',
 		},
 		{
 			option_name: 'Add New College Admin',
-			path: collegeAdminLink + '/add-new-college-admin',
+			path: collegeAdminPath + '/add-new-college-admin',
 			icon: iconAddNew,
-			cName: 'sidebar_option',
 		},
 		{
 			option_name: 'Teachers',
-			path: collegeAdminLink + '/view-all/teachers',
+			path: collegeAdminPath + '/view-all/teachers',
 			icon: iconTeacher,
-			cName: 'sidebar_option',
 		},
 		{
 			option_name: 'Students',
-			path: collegeAdminLink + '/view-all/students',
+			path: collegeAdminPath + '/view-all/students',
 			icon: iconStudent,
-			cName: 'sidebar_option',
 		},
 		{
 			option_name: 'Parents',
-			path: collegeAdminLink + '/view-all/parents',
+			path: collegeAdminPath + '/view-all/parents',
 			icon: iconParent,
-			cName: 'sidebar_option',
 		},
 		{
 			option_name: 'View College Admins',
-			path: collegeAdminLink + '/view-college-admins',
+			path: collegeAdminPath + '/view-college-admins',
 			icon: iconCollegeAdmin,
-			cName: 'sidebar_option',
+		},
+	],
+	STUDENT: [
+		{
+			option_name: 'Dashboard',
+			path: studentEndpoints.dashboard,
+			icon: iconDashboard,
+		},
+		{
+			option_name: 'Provide Feedback',
+			path: studentEndpoints.provideFeedback,
+			icon: iconFeedback,
 		},
 	],
 };

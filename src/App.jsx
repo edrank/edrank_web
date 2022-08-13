@@ -5,14 +5,19 @@ import {
 	AddNewCollegeAdmin,
 	ChangePassword,
 	STPListPage,
-	FeedbackFormPage
+	FeedbackFormPage,
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
 	studentEndpoints,
 } from 'constants/endpoints';
-import { CollegeAdminRouter } from 'components';
+import {
+	CollegeAdminRouter,
+	StudentDashboard,
+	CollegeAdminDashboard,
+} from 'components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 function App() {
 	console.log('COLLEGE ADMIN BASE');
 	console.log(collegeAdminEndpoints.dashboard);
@@ -30,10 +35,10 @@ function App() {
 					/>
 
 					<Route path='/college-admin' element={<CollegeAdminRouter />}>
-						<Route index element={<Dashboard />} />
+						<Route index element={<CollegeAdminDashboard />} />
 						<Route
 							path={collegeAdminEndpoints.dashboard}
-							element={<Dashboard />}
+							element={<CollegeAdminDashboard />}
 						/>
 						<Route
 							path={collegeAdminEndpoints.addNewCollegeAdmin}
@@ -44,8 +49,11 @@ function App() {
 						</Route>
 					</Route>
 					<Route path='/student' element={<CollegeAdminRouter />}>
-						<Route index element={<Dashboard />} />
-						<Route path={studentEndpoints.dashboard} element={<Dashboard />} />
+						<Route index element={<StudentDashboard />} />
+						<Route
+							path={studentEndpoints.dashboard}
+							element={<StudentDashboard />}
+						/>
 						<Route
 							path={studentEndpoints.provideFeedback}
 							element={<FeedbackFormPage />}
