@@ -39,6 +39,7 @@ export default function LoginPage() {
 			console.log(response);
 			localStorage.setItem('token', response.data.data.access_token);
 			localStorage.setItem('tenant_type', response.data.data.tenant_type);
+			localStorage.setItem('user_info', JSON.stringify(response.data.data.user))
 			console.log('tenant_type', response.data.data.tenant_type);
 			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
 		}

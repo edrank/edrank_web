@@ -6,6 +6,9 @@ import {
 	ChangePassword,
 	STPListPage,
 	FeedbackFormPage,
+	ProvideSTFeedback,
+	TeacherLeaderboard,
+	CollegeLeaderboard
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
@@ -56,7 +59,7 @@ function App() {
 						/>
 						<Route
 							path={studentEndpoints.provideFeedback}
-							element={<FeedbackFormPage />}
+							element={<ProvideSTFeedback />}
 						/>
 					</Route>
 				</Routes>

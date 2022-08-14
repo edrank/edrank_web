@@ -5,4 +5,7 @@ export { default as AddNewCollegeAdmin } from './CollegeAdmin/AddNewCollegeAdmin
 export { default as ChangePassword } from './ChangePassword/ChangePassword'
 export { default as STPListPage } from './STPListPage/STPListPage'
 export { default as FeedbackFormPage } from './FeedbackFormPage/FeedbackFormPage'
-
+export {default as ProvideSTFeedback} from './Student/ProvideFeedback/ProvideSTFeedback'
+export {default as ProvideSCFeedback} from './Student/ProvideFeedback/ProvideSCFeedback'
+export {default as TeacherLeaderboard} from './Leaderboards/TeacherLeaderboards/TeacherLeaderboards'
+export {default as CollegeLeaderboard} from './Leaderboards/CollegeLeaderboards/CollegeLeaderboards'
