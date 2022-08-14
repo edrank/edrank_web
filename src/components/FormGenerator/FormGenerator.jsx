@@ -9,15 +9,6 @@ function FormGenerator({ formClass, onSubmit, formObject }) {
 		formState: { errors },
 	} = useForm();
 
-	const selectOptions = [
-		{ value: 'STUDENT', label: 'Student' },
-		{ value: 'TEACHER', label: 'Teacher' },
-		{ value: 'PARENT', label: 'Parent' },
-		{ value: 'COLLEGE_ADMIN', label: 'College Admin' },
-		{ value: 'HEI', label: 'HEI Authority/Regulators' },
-		{ value: 'SUPER_ADMIN', label: 'Super Admin' },
-	];
-
 	// const inputTypes = Object.keys(formFields);
 	// const labels = Object.keys(label_required);
 	// const input_required = Object.values(label_required);
@@ -26,10 +17,11 @@ function FormGenerator({ formClass, onSubmit, formObject }) {
 
 	return (
 		<form className={formClass} onSubmit={handleSubmit(onSubmit)}>
-			<div className="form-div">
+			<div className='form-div'>
 				<h1>Enter your details</h1>
 			</div>
-			{formObject.map((formField, index) => {
+			{formObject?.map((formField, index) => {
+				const inputKey = String(formField.inputKey);
 				return formField.inputType === 'select' ? (
 					<div className='form-div'>
 						<label htmlFor={formField.inputKey}>
@@ -44,7 +36,7 @@ function FormGenerator({ formClass, onSubmit, formObject }) {
 										<Select
 											name='tenantType'
 											inputId='tenantType'
-											options={selectOptions}
+											options={formField.options}
 											{...field}
 										/>
 									)}
@@ -57,12 +49,55 @@ function FormGenerator({ formClass, onSubmit, formObject }) {
 										<Select
 											name='tenantType'
 											inputId='tenantType'
-											options={selectOptions}
+											options={formField.options}
 											{...field}
 										/>
 									)}
 								/>
 							)}
+						</label>
+						<div className='form-validation-error'>
+							{errors[formField.inputKey]?.message}
+						</div>
+					</div>
+				) : formField.inputType === 'radio' ? (
+					<div className='form-div'>
+						<label htmlFor={formField.inputKey}>
+							{formField.label}
+							{formField.options.map((option, index) => (
+								// <label htmlFor=''>
+								// 	{option['option_' + (index + 1)]}
+								// 	<input
+								// 		type='radio'
+								// 		name='question1'
+								// 		value='option1'
+								// 		{...register(option['option_' + (index + 1)])}
+								// 	/>
+								// </label>
+								<>
+									<label htmlFor={option}>{option}</label>
+									<input
+										type='radio'
+										value={option}
+										// name={formField.inputKey}
+										id={option}
+										{...register(inputKey, { required: formField.required })}
+									/>
+								</>
+							))}
+							{/* {formField.required ? (
+								<input
+									type={formField.inputType}
+									{...register(formField.inputKey, {
+										required: 'This is a required field',
+									})}
+								/>
+							) : (
+								<input
+									type={formField.inputType}
+									{...register(formField.inputKey)}
+								/>
+							)} */}
 						</label>
 						<div className='form-validation-error'>
 							{errors[formField.inputKey]?.message}
@@ -78,11 +113,13 @@ function FormGenerator({ formClass, onSubmit, formObject }) {
 									{...register(formField.inputKey, {
 										required: 'This is a required field',
 									})}
+									id={formField.inputKey}
 								/>
 							) : (
 								<input
 									type={formField.inputType}
 									{...register(formField.inputKey)}
+									id={formField.inputKey}
 								/>
 							)}
 						</label>
