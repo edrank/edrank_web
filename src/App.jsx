@@ -18,6 +18,7 @@ import endpoints, {
 	collegeAdminEndpoints,
 	studentEndpoints,
 	superAdminEndpoints,
+	teacherEndpoints,
 } from 'constants/endpoints';
 import {
 	CollegeAdminRouter,
@@ -95,9 +96,13 @@ function App() {
 							path={superAdminEndpoints.collegeLeaderboard}
 							element={<CollegeLeaderboard />}
 						/>
+						<Route path=':collegeId' element={<CollegeDetailsPage />} />
+					</Route>
+					<Route path='/teacher' element={<CollegeAdminRouter />}>
+						<Route index element={<StudentDashboard />} />
 						<Route
-							path=':collegeId'
-							element={<CollegeDetailsPage />}
+							path={teacherEndpoints.dashboard}
+							element={<StudentDashboard />}
 						/>
 					</Route>
 				</Routes>

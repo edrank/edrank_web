@@ -31,8 +31,13 @@ const studentPath = '/student';
 const provideFeedbackST = '/provide-feedback/teacher';
 const provideFeedbackSC = '/provide-feedback/college';
 const provideFeedback1 = '/provide-feedback1';
-const teacherLeaderboard = '/teacher-leaderboard'
-const collegeLeaderboard = '/college-leaderboard'
+const teacherLeaderboard = '/teacher-leaderboard';
+const collegeLeaderboard = '/college-leaderboard';
+
+// teacher
+const teacherPath = '/teacher';
+// const dashboard1 = '/dashboard'
+
 
 // // SUPER_ADMIN
 // const superAdminPath='/regulator'
@@ -77,6 +82,16 @@ export const superAdminEndpoints = addPrefixToPaths(
 	},
 	superAdminPath,
 )
+
+export const teacherEndpoints = addPrefixToPaths(
+	{
+		base: ['/', dashboard],
+		dashboard: dashboard,
+	},
+	teacherPath
+)
+
+
 export default Object.freeze({
 	serverUrl,
 	restUrl,

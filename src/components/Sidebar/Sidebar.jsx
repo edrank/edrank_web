@@ -7,7 +7,7 @@ function Sidebar({ isDesktop, toggleSidebar }) {
 	let location = useLocation();
 	const tenant_type = localStorage.getItem('tenant_type');
 	const [selectedOption, setSelectedOption] = useState(
-		SideBarPathIndex[tenant_type][location.pathname],
+		SideBarPathIndex[tenant_type][location?.pathname],
 	);
 
 	console.log(selectedOption);

@@ -3,6 +3,7 @@ import {
 	collegeAdminPath,
 	studentEndpoints,
 	superAdminEndpoints,
+	teacherEndpoints,
 } from 'constants/endpoints';
 
 // common icons
@@ -40,6 +41,10 @@ export const SideBarPathIndex = {
 		[studentEndpoints.provideFeedback]: 1,
 		[studentEndpoints.collegeLeaderboard]: 2,
 		[studentEndpoints.teacherLeaderboard]: 3,
+	},
+	TEACHER: {
+		[teacherEndpoints.base]: 0,
+		[teacherEndpoints.dashboard]: 0,
 	},
 };
 
@@ -126,5 +131,14 @@ export const SidebarData = {
 			path: superAdminEndpoints.teacherLeaderboard,
 			icon: iconTeacher,
 		},
+	],
+	TEACHER: [
+		{
+			option_name: 'Dashboard',
+			path: teacherEndpoints.dashboard,
+			icon: iconDashboard,
+		},
+		// {
+		// }
 	],
 };

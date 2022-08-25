@@ -8,7 +8,7 @@ function CollegeDetailsPage() {
 	const [college, setCollege] = useState({});
 	const [nationalRank, setNationalRank] = useState(0);
 	const [stateRank, setStateRank] = useState(0);
-	// const [nationalRank, setNationalRank] = useState(0);
+	const [regionalRank, setRegionalRank] = useState(0);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -24,12 +24,18 @@ function CollegeDetailsPage() {
 				request_type: 'STATE',
 				state: response?.data.data.college.state,
 			});
+			const response3 = await makeRequest('get-my-colleges-rank', 'POST', {
+				cid: parseInt(collegeId),
+				request_type: 'REGIONAL',
+				state: response?.data.data.college.city,
+			});
 			// const data = await response.json();
 			console.log('data');
 			console.log(response?.data.data.college);
 			setCollege(response?.data.data.college);
 			setNationalRank(reponse1?.data.data.rank);
 			setStateRank(reponse2?.data.data.rank);
+			setRegionalRank(response3?.data.data.rank);
 		}
 		fetchData();
 	}, []);
