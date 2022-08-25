@@ -13,6 +13,7 @@ import {
 	STPDetailsPage,
 	SuperAdminDashboard,
 	CollegeDetailsPage,
+	FeedbackDrives,
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
@@ -26,6 +27,7 @@ import {
 	CollegeAdminDashboard,
 } from 'components';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function App() {
 	console.log('COLLEGE ADMIN BASE');
@@ -58,6 +60,10 @@ function App() {
 						<Route path={collegeAdminEndpoints.viewDetails}>
 							<Route path={endpoints.entityId} element={<STPDetailsPage />} />
 						</Route>
+						<Route
+							path={collegeAdminEndpoints.feedbackDrives}
+							element={<FeedbackDrives />}
+						/>
 					</Route>
 					<Route path='/student' element={<CollegeAdminRouter />}>
 						<Route index element={<StudentDashboard />} />

@@ -28,7 +28,7 @@ function STPListCard({ item, entityType }) {
 			{entityType === 'college_admins' && (
 				<>
 					<p>
-						Status:{' '}
+						Status:
 						<span
 							style={{ color: item.is_active === true ? 'green' : 'black' }}
 						>

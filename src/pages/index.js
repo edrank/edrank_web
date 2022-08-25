@@ -12,5 +12,5 @@ export { default as TeacherLeaderboard } from './Leaderboards/TeacherLeaderboard
 export { default as CollegeLeaderboard } from './Leaderboards/CollegeLeaderboards/CollegeLeaderboards'
 export { default as SuperAdminDashboard } from './SuperAdminDashboard/SuperAdminDashboard'
 export { default as CollegeDetailsPage } from './CollegeDetailsPage/CollegeDetailsPage'
-
+export { default as FeedbackDrives } from './FeedbackDrives/FeedbackDrives'
 

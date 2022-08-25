@@ -21,6 +21,7 @@ const entityId = ':entityType/:entityId';
 // const viewStudents = ':students'
 // const viewParents = ':parents'
 const collegeAdmins = '/view-all-college-admins'
+const feedbackDrives = '/feedback-drives'
 
 // super admin
 const superAdminPath = '/regulator';
@@ -52,6 +53,7 @@ export const collegeAdminEndpoints = addPrefixToPaths(
 		viewStpList: viewStpList,
 		viewDetails: viewDetails,
 		collegeAdmins: collegeAdmins,
+		feedbackDrives: feedbackDrives,
 		// viewTeachers: viewTeachers,
 		// viewStudents: viewStudents,
 		// viewParents: viewParents,

@@ -27,6 +27,7 @@ export const SideBarPathIndex = {
 		[collegeAdminPath + '/students']: 3,
 		[collegeAdminPath + '/parents']: 4,
 		[collegeAdminEndpoints.collegeAdmins]: 5,
+		[collegeAdminEndpoints.feedbackDrives]: 6,
 		// '/college-admin/about': 6,
 	},
 	SUPER_ADMIN: {
@@ -79,6 +80,11 @@ export const SidebarData = {
 			option_name: 'View College Admins',
 			path: collegeAdminPath + '/view-all/college_admins',
 			icon: iconCollegeAdmin,
+		},
+		{
+			option_name: 'Feedback Drives',
+			path: collegeAdminPath + '/feedback-drives',
+			icon: iconFeedback,
 		},
 	],
 	STUDENT: [

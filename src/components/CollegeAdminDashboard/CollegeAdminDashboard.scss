@@ -1,6 +1,6 @@
 .college-admin-dashboard-metrics-wrapper {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: auto;
 	// flex-wrap: wrap;
 	// align-items: stretch;
@@ -8,6 +8,11 @@
 	gap: 1.5rem;
 }
 
+@media screen and (max-width: 1366px) {
+	.college-admin-dashboard-metrics-wrapper {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
 @media screen and (max-width: 767px) {
 	.college-admin-dashboard-metrics-wrapper {
 		grid-template-columns: repeat(2, 1fr);
@@ -19,5 +24,23 @@
 	.college-admin-dashboard-metrics-wrapper {
 		grid-template-columns: repeat(1, 1fr);
 		grid-template-rows: auto;
+	}
+}
+
+.college-admin-dashboard-graphs {
+	b {
+		margin-bottom: 5px;
+		display: block;
+	}
+	.sa-graph-wrapper {
+		max-width: 400px;
+		margin: 20px auto;
+	}
+	.kbc-graph-wrapper {
+		max-width: 800px;
+		margin: 20px auto;
+	}
+	.graph-heading {
+		margin: 40px 0 15px;
 	}
 }

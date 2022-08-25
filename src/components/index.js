@@ -11,3 +11,7 @@ export { default as QuestionCard } from './QuestionCardGenerator/QuestionCardGen
 export { default as LeaderboardCard } from './LeaderboardCard/LeaderboardCard'
 export { default as LeaderboardCardTopThree } from './LeaderboardCardTopThree/LeaderboardCardTopThree'
 export { default as DashboardMetricsCard } from './DashboardMetricsCard/DashboardMetricsCard'
+export { default as SaGraph } from './SaGraph/SaGraph'
+export { default as KbcGraph } from './KbcGraph/KbcGraph'
+
+

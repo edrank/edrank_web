@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './LeaderboardCard.scss';
 
 // import './STPListCard.scss';
 function LeaderboardCard({ rank, main, submain, path }) {
@@ -7,7 +8,8 @@ function LeaderboardCard({ rank, main, submain, path }) {
 			<div className='leaderboard-card-main'>
 				<p className='leaderboard-rank'>{rank}</p>
 				<p>
-					{main} <span className='leadercard-submain'>({submain})</span>
+					{main}{' '}
+					{submain && <span className='leadercard-submain'>({submain})</span>}
 				</p>
 				{/* <p>{submain}</p> */}
 			</div>
