@@ -17,7 +17,7 @@ export const makeRequest = async (apiEndPoint, method, data, customHeaders) => {
                         ...customHeaders
                     }
                 });
-                toast(apiResponse?.data?.message, { type: 'success' })
+                // toast(apiResponse?.data?.message, { type: 'success' })
                 break;
 
             case 'POST':
@@ -27,7 +27,7 @@ export const makeRequest = async (apiEndPoint, method, data, customHeaders) => {
                         ...customHeaders
                     },
                 });
-                toast(apiResponse?.data?.message, { type: 'success' })
+                // toast(apiResponse?.data?.message, { type: 'success' })
                 break;
             case 'PUT':
 
@@ -37,7 +37,7 @@ export const makeRequest = async (apiEndPoint, method, data, customHeaders) => {
                         ...customHeaders
                     },
                 });
-                toast(apiResponse?.data?.message, { type: 'success' })
+                // toast(apiResponse?.data?.message, { type: 'success' })
                 break;
             default: console.log('Invalid API method');
         }
