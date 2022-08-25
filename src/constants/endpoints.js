@@ -25,7 +25,11 @@ const superAdminPath = '/super-admin';
 
 // student
 const studentPath = '/student';
-const provideFeedback = '/provide-feedback';
+const provideFeedbackST = '/provide-feedback/teacher';
+const provideFeedbackSC = '/provide-feedback/college';
+const provideFeedback1 = '/provide-feedback1';
+const teacherLeaderboard = '/teacher-leaderboard'
+const collegeLeaderboard = '/college-leaderboard'
 
 // college admin endpoints
 export const collegeAdminEndpoints = addPrefixToPaths(
@@ -47,7 +51,11 @@ export const studentEndpoints = addPrefixToPaths(
 	{
 		base: ['/', dashboard],
 		dashboard: dashboard,
-		provideFeedback: provideFeedback,
+		provideFeedbackST: provideFeedbackST,
+		provideFeedbackSC: provideFeedbackSC,
+		provideFeedback1: provideFeedback1,
+		teacherLeaderboard: teacherLeaderboard,
+		collegeLeaderboard: collegeLeaderboard,
 	},
 	studentPath,
 );

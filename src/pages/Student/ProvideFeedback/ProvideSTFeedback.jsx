@@ -7,7 +7,7 @@ import { FormGenerator, QuestionCard } from 'components';
 
 function StudentProvideSTFeedback() {
 	const [teachers, setteachers] = useState([]);
-	const [feedbackQUestions, setFeedbackQuestions] = useState([]);
+	const [feedbackQuestions, setFeedbackQuestions] = useState([]);
 	const [driveid, setDriveId] = useState("1");
 
 	useEffect(() => {
@@ -53,7 +53,7 @@ function StudentProvideSTFeedback() {
 
 	return (
 		<>
-			<Navbar />
+			{/* <Navbar /> */}
 			<div className='st-feedback-form-main'>
 				<div>
 					<FormGenerator
@@ -62,7 +62,7 @@ function StudentProvideSTFeedback() {
 						formObject={formObject}
 					/>
 					{
-						feedbackQUestions.map((fbq, i) => {
+						feedbackQuestions.map((fbq, i) => {
 							return (
 								<QuestionCard
 									key={i}

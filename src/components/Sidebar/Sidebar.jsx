@@ -25,23 +25,43 @@ function Sidebar({ isDesktop, toggleSidebar }) {
 						key={index}
 						onClick={() => {
 							setSelectedOption(index);
-							// if (isDesktop) 
+							// if (isDesktop)
 							toggleSidebar();
 						}}
+						className={
+							selectedOption === index
+								? 'sidebar-option-wrapper active'
+								: 'sidebar-option-wrapper'
+						}
 					>
-						<div
-							className={
-								selectedOption === index
-									? 'sidebar-option active'
-									: 'sidebar-option'
-							}
-						>
+						<div className='sidebar-option'>
 							<div className='sidebar-option-icon'>
 								{/* <i className={item.icon}></i> */}
-								<img src={item.icon} alt="" />
+								<img src={item.icon} alt='' />
 							</div>
 							<div className='sidebar-option-name'>{item.option_name}</div>
 						</div>
+						{item.sub_menu && (
+							<div className='sidebar-option-sub-menu'>
+								{item.sub_menu.map((sub_item, sub_index) => {
+									return (
+										<Link
+											to={sub_item.path}
+											key={sub_index}
+											onClick={() => {
+												setSelectedOption(index);
+												// if (isDesktop)
+												toggleSidebar();
+											}}
+										>
+											<div className='sidebar-option-sub-menu-item'>
+												{sub_item.option_name}
+											</div>
+										</Link>
+									);
+								})}
+							</div>
+						)}
 					</Link>
 				);
 			})}

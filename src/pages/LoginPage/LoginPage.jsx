@@ -44,26 +44,6 @@ export default function LoginPage() {
 			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
 		}
 		postData();
-		// try {
-		// 	axios
-		// 		.post(restUrl + '/login', requestBody, {
-		// 			headers: {
-		// 				// 'Content-Type': 'application/json',
-		// 				'x-edrank-tenant-type': tenantType.value,
-		// 			},
-		// 		})
-		// 		.then(response => {
-		// 			console.log(response);
-		// 			localStorage.setItem('token', response.data.data.access_token);
-		// 			localStorage.setItem('tenant_type', response.data.data.tenant_type);
-		// 			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
-		// 			console.log('REDIRECTING TO DASHBOARD');
-		// 			console.log(response.data.data.tenant_type);
-		// 			console.log(tenantTypeKeyPairMap[response.data.data.tenant_type]);
-		// 		});
-		// } catch (error) {
-		// 	console.log(error);
-		// }
 	};
 
 	const loginOptions = [

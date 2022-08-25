@@ -3,8 +3,8 @@ function QuestionCard({ question, options }) {
 	return (
 		<div className='question-list-card-main'>
 			<h3>{question}</h3>
-            <br></br>
-            <br></br>
+            {/* <br></br>
+            <br></br> */}
             {
                 options.map((opt, i) => {
                     return (

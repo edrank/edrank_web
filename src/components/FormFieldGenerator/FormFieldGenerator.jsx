@@ -1,43 +1,15 @@
+import { Controller } from 'react-hook-form';
 import Select from 'react-select';
-import { useForm, Controller } from 'react-hook-form';
 
-function FormGenerator({
-	formClass,
-	onSubmit,
+function FormFieldGenerator({
 	formObject,
-	isFeedbackForm,
-	handleRemoveForm,
+	register,
+	control,
+	errors,
 	formIndex,
-	formId,
-	heading
 }) {
-	const {
-		register,
-		handleSubmit,
-		control,
-		reset,
-		formState: { errors },
-	} = useForm({
-		mode: 'onSubmit',
-		reValidateMode: 'onSubmit',
-	});
-
-	console.log('FORM OBJECT LENGTH: ' + formObject.length);
 	return (
-		<form
-			key={formIndex}
-			className={formClass}
-			id={formId}
-			onSubmit={handleSubmit(onSubmit)}
-		>
-			<div className='form-div'>
-				<h3>{heading}</h3>
-				{isFeedbackForm && (
-					<button onClick={handleRemoveForm} className='remove-feedback-form'>
-						Remove
-					</button>
-				)}
-			</div>
+		<>
 			{formObject?.map((formField, index) => {
 				const inputKey = String(formField.inputKey);
 				return formField.inputType === 'select' ? (
@@ -52,7 +24,7 @@ function FormGenerator({
 									rules={{ required: 'This field is required' }}
 									render={({ field }) => (
 										<Select
-											name='tenantType'
+											// name='tenantType'
 											inputId='tenantType'
 											options={formField.options}
 											{...field}
@@ -61,12 +33,12 @@ function FormGenerator({
 								/>
 							) : (
 								<Controller
-									name={formField.inputKey}
+									name={`${formField.inputKey}${formIndex}`}
 									control={control}
 									render={({ field }) => (
 										<Select
-											name='tenantType'
-											inputId='tenantType'
+											name={`${formField.inputKey}${formIndex}`}
+											inputId={`${formField.inputKey}${formIndex}`}
 											options={formField.options}
 											{...field}
 										/>
@@ -83,21 +55,19 @@ function FormGenerator({
 						<label htmlFor={formField.inputKey}>
 							{formField.label}
 							{formField.options.map((option, index) => (
-								<div className='form-div-inner'>
-									<label
-										key={index}
-										htmlFor={`form${formIndex}-question${formField.inputKey}-option${index}`}
-									>
-										<input
-											type='radio'
-											value={`option_${index + 1}`}
-											// name={formField.inputKey}
-											id={`form${formIndex}-question${formField.inputKey}-option${index}`}
-											{...register(inputKey, { required: formField.required })}
-										/>
-										{option}
-									</label>
-								</div>
+								<label
+									key={index}
+									htmlFor={`form${formIndex}-question${formField.inputKey}-option${index}`}
+								>
+									<input
+										type='radio'
+										value={option}
+										// name={formField.inputKey}
+										id={`form${formIndex}-question${formField.inputKey}-option${index}`}
+										{...register(inputKey, { required: formField.required })}
+									/>
+									{option}
+								</label>
 							))}
 							{/* {formField.required ? (
 								<input
@@ -116,21 +86,6 @@ function FormGenerator({
 						<div className='form-validation-error'>
 							{errors.inputKey?.message}
 						</div>
-					</div>
-				) : formField.inputType === 'textarea' ? (
-					<div className='form-div'>
-						<label htmlFor={formField.inputKey}>
-							{formField.label}
-							<textarea
-								name={formField.inputKey}
-								id={formField.inputKey}
-								{...register(formField.inputKey, {
-									required: formField.required,
-								})}
-								cols='30'
-								rows='10'
-							></textarea>
-						</label>
 					</div>
 				) : (
 					<div key={index} className='form-div'>
@@ -158,11 +113,8 @@ function FormGenerator({
 					</div>
 				);
 			})}
-			<div className='form-div'>
-				<input type='submit' value='PROCEED' />
-			</div>
-		</form>
+		</>
 	);
 }
 
-export default FormGenerator;
+export default FormFieldGenerator;

@@ -1,6 +1,6 @@
 import { makeRequest } from 'services/api';
 import { FormFieldGenerator, FormGenerator } from 'components';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 
@@ -55,12 +55,11 @@ function FeedbackFormPage() {
 				inputType: 'select',
 				inputKey: 'teacher',
 				label: 'Select Teacher',
-				required: false,
+				required: true,
 				options: teachers,
 			},
 			...formObject,
 		];
-
 		return formObject;
 	};
 
@@ -90,7 +89,7 @@ function FeedbackFormPage() {
 	useEffect(() => {
 		console.log('useEffect');
 		async function fetchData() {
-			const response = await makeRequest('feedback-questions/ST', 'POST');
+			const response = await makeRequest('feedback-questions/ST', 'GET');
 			const response2 = await makeRequest('get-feedback-teachers', 'POST', {
 				course_id: JSON.parse(localStorage.getItem('user_info')).course_id,
 			});
@@ -125,58 +124,49 @@ function FeedbackFormPage() {
 			<h1 className='feedback-form-page-header'>
 				Please provide your valuable feedback
 			</h1>
-			<form id='feedback-form-1' onSubmit={handleSubmit(onSubmit)}>
-				<div className='feedback-form-page-body'>
-					{feedbackForms.map((form, i) => (
-						<Fragment key={i}>
-							{/* <FormGenerator
-							key={i}
-							formIndex={i}
-							formClass='feedback-form-wrapper'
-							formId={'feedback-form-' + i}
-							onSubmit={onSubmit}
+			<div className='feedback-form-page-body'>
+				{feedbackForms.map((form, i) => (
+					// <FormGenerator
+					// 	key={i}
+					// 	formIndex={i}
+					// 	formClass='feedback-form-wrapper'
+					// 	formId={'feedback-form-' + i}
+					// 	onSubmit={onSubmit}
+					// 	formObject={getFormObject()}
+					// 	handleRemoveForm={() => handleRemoveForm(i)}
+					// 	isFeedbackForm={true}
+					// />
+
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<FormFieldGenerator
 							formObject={getFormObject()}
-							handleRemoveForm={() => handleRemoveForm(i)}
-							isFeedbackForm={true}
-							formRegister={'register' + i}
-							formControl={'control' + i}
-							formErrors={'errors' + i}
-							formHandleSubmit={'handleSubmit' + i}
-						/> */}
+							register={register}
+							control={control}
+							errors={errors}
+							formIndex={i}
+						/>
+					</form>
 
-							<FormFieldGenerator
-								formObject={getFormObject()}
-								register={register}
-								control={control}
-								errors={errors}
-								formIndex={i}
-							/>
-
-							<div>
-								<h3>Form {i + 1}</h3>
-								<button
-									onClick={() => handleRemoveForm(i)}
-									className='remove-feedback-form'
-								>
-									Remove
-								</button>
-							</div>
-						</Fragment>
-					))}
-					<div className='form-div'>
-						<button onClick={handleAddForm} className='add-feedback-form'>
-							Add another form
-						</button>
-					</div>
-
-					{/* <div className='form-div'>
-						<button onClick={e => SubmitForms(e)}>SUBMIT</button>
-					</div> */}
-				</div>
+					// <div>
+					// 	<h3>Form {i + 1}</h3>
+					// 	<button
+					// 		onClick={() => handleRemoveForm(i)}
+					// 		className='remove-feedback-form'
+					// 	>
+					// 		Remove
+					// 	</button>
+					// </div>
+				))}
 				<div className='form-div'>
-					<input type='submit' value='SUBMITTTT' />
+					<button onClick={handleAddForm} className='add-feedback-form'>
+						Add another form
+					</button>
 				</div>
-			</form>
+
+				<div className='form-div'>
+					<button onClick={SubmitForms}>SUBMIT</button>
+				</div>
+			</div>
 		</div>
 	);
 }

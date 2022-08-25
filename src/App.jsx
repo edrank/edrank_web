@@ -1,14 +1,15 @@
 import {
 	LoginPage,
-	Dashboard,
+	// Dashboard,
 	ProfilePage,
 	AddNewCollegeAdmin,
 	ChangePassword,
 	STPListPage,
 	FeedbackFormPage,
-	ProvideSTFeedback,
+	// ProvideSTFeedback,
+	ProvideSCFeedback,
 	TeacherLeaderboard,
-	CollegeLeaderboard
+	CollegeLeaderboard,
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
@@ -57,9 +58,25 @@ function App() {
 							path={studentEndpoints.dashboard}
 							element={<StudentDashboard />}
 						/>
-						<Route
-							path={studentEndpoints.provideFeedback}
+						{/* <Route
+							path={studentEndpoints.provideFeedbackST}
 							element={<ProvideSTFeedback />}
+	/>*/}
+						<Route
+							path={studentEndpoints.provideFeedbackSC}
+							element={<ProvideSCFeedback />}
+						/>
+						<Route
+							path={studentEndpoints.provideFeedbackST}
+							element={<FeedbackFormPage />}
+						/>
+						<Route
+							path={studentEndpoints.teacherLeaderboard}
+							element={<TeacherLeaderboard />}
+						/>
+						<Route
+							path={studentEndpoints.collegeLeaderboard}
+							element={<CollegeLeaderboard />}
 						/>
 					</Route>
 				</Routes>

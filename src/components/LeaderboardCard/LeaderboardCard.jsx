@@ -1,12 +1,10 @@
 // import './STPListCard.scss';
-function LeaderboardCard({ main, submain }) {
+function LeaderboardCard({ rank, main, submain }) {
 	return (
-		<div className='question-list-card-main'>
-			<h4>{main}</h4>
-            <br></br>
-            <h6>{submain}</h6>
-            <br></br>
-            <br></br>
+		<div className='leaderboard-card-main'>
+			<p className="leaderboard-rank">{rank}</p>
+			<p>{main} <span className="leadercard-submain">({submain})</span></p>
+			{/* <p>{submain}</p> */}
 		</div>
 	);
 }

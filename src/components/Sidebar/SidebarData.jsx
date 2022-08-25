@@ -1,7 +1,12 @@
-import { collegeAdminEndpoints, collegeAdminPath, studentEndpoints } from 'constants/endpoints';
+import {
+	collegeAdminEndpoints,
+	collegeAdminPath,
+	studentEndpoints,
+} from 'constants/endpoints';
 
 // common icons
 import iconDashboard from 'assets/images/icon-dashboard-1.png';
+import iconCollege from 'assets/images/icon-college.png';
 // admin icons
 import iconAddNew from 'assets/images/icon-add-new.png';
 import iconTeacher from 'assets/images/icon-teacher-1.png';
@@ -29,6 +34,8 @@ export const SideBarPathIndex = {
 		[studentEndpoints.base]: 0,
 		[studentEndpoints.dashboard]: 0,
 		[studentEndpoints.provideFeedback]: 1,
+		[studentEndpoints.collegeLeaderboard]: 2,
+		[studentEndpoints.teacherLeaderboard]: 3,
 	},
 };
 
@@ -73,8 +80,30 @@ export const SidebarData = {
 		},
 		{
 			option_name: 'Provide Feedback',
-			path: studentEndpoints.provideFeedback,
+			path: '#',
 			icon: iconFeedback,
+			sub_menu: [
+				{
+					option_name: 'Teacher',
+					path: studentEndpoints.provideFeedbackST,
+					icon: iconFeedback,
+				},
+				{
+					option_name: 'College',
+					path: studentEndpoints.provideFeedbackSC,
+					icon: iconCollege,
+				},
+			],
+		},
+		{
+			option_name: 'College Leaderboard',
+			path: studentEndpoints.collegeLeaderboard,
+			icon: iconCollege,
+		},
+		{
+			option_name: 'Teacher Leaderboard',
+			path: studentEndpoints.teacherLeaderboard,
+			icon: iconTeacher,
 		},
 	],
 };
