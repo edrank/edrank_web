@@ -6,6 +6,7 @@ import './ProvideFeedbackForm.scss';
 
 function ProvideSCFeedback() {
 	const [feedbackQuestions, setFeedbackQuestions] = useState([]);
+	const [driveId, setDriveId] = useState(0);
 
 	const getRadioOptions = question => {
 		let optionsArray = [];
@@ -64,6 +65,7 @@ function ProvideSCFeedback() {
 		async function fetchData() {
 			const response = await makeRequest('feedback-questions/SC', 'POST');
 			setFeedbackQuestions(response?.data.data.questions);
+			setDriveId(response?.data.data.drive_id);
 		}
 		fetchData();
 	}, []);
@@ -77,7 +79,7 @@ function ProvideSCFeedback() {
 			});
 		});
 
-		mcqResponse = [...mcqResponse, { text_feedback: '' }];
+		// mcqResponse = [...mcqResponse, { text_feedback: '' }];
 		return mcqResponse;
 	};
 
@@ -99,7 +101,7 @@ function ProvideSCFeedback() {
 
 		const requestBody = {
 			feedback: {
-				drive_id: 1,
+				drive_id: driveId,
 				mcq: createMcqResponse(questionIdsArray, optionIdsArray),
 				text_feedback: data.text_feedback,
 			},
@@ -115,18 +117,18 @@ function ProvideSCFeedback() {
 		const requestBody = changeToRequiredFormat(data);
 		async function postData() {
 			console.log('requestBODY: ', requestBody);
-			const response = await makeRequest(
-				'submit-feedback/SC',
-				'POST',
-				requestBody,
-			);
+			// const response = await makeRequest(
+			// 	'submit-feedback/SC',
+			// 	'POST',
+			// 	requestBody,
+			// );
 
-			if (response?.status === 200) {
-				document.getElementById('provide-sc-feedback-form').reset();
-			}
+			// if (response?.status === 200) {
+			// 	document.getElementById('provide-sc-feedback-form').reset();
+			// }
 
-			console.log('RESPONSE');
-			console.log(response);
+			// console.log('RESPONSE');
+			// console.log(response);
 		}
 		postData();
 	};

@@ -1,0 +1,23 @@
+.college-admin-dashboard-metrics-wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	// flex-wrap: wrap;
+	// align-items: stretch;
+	// justify-content: space-evenly;
+	gap: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+	.college-admin-dashboard-metrics-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+	}
+}
+
+@media screen and (max-width: 499px) {
+	.college-admin-dashboard-metrics-wrapper {
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: auto;
+	}
+}

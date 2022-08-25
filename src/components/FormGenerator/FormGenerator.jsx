@@ -118,7 +118,7 @@ function FormGenerator({
 						</div>
 					</div>
 				) : formField.inputType === 'textarea' ? (
-					<div className='form-div'>
+					<div key={index} className='form-div'>
 						<label htmlFor={formField.inputKey}>
 							{formField.label}
 							<textarea

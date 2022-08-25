@@ -25,6 +25,36 @@ function STPListCard({ item, entityType }) {
 					<p>Status: {(item.is_active ? 'Active' : 'Inactive') ?? 'Loading'}</p>
 				</>
 			)}
+			{entityType === 'college_admins' && (
+				<>
+					<p>
+						Status:{' '}
+						<span
+							style={{ color: item.is_active === true ? 'green' : 'black' }}
+						>
+							{(item.is_active ? 'Active' : 'Inactive') ?? 'Loading'}
+						</span>
+					</p>
+				</>
+			)}
+			{entityType === 'college' && (
+				<>
+					{/* <p>
+						Onboarding Status:
+						{(item.onboarding_status === 'ON_GOING' ? 'Ongoing' : 'Pending') ??
+							'Loading'}
+					</p> */}
+					<p>Phone: {item.phone ?? 'Loading'}</p>
+					<p>University: {item.university_name ?? 'Loading'}</p>
+					<p>State: {item.state ?? 'Loading'}</p>
+					<p>City: {item.city ?? 'Loading'}</p>
+					<p>
+						<a style={{ color: 'blue' }} href={item.website_url}>
+							Visit Website
+						</a>
+					</p>
+				</>
+			)}
 		</div>
 	);
 }

@@ -10,17 +10,21 @@ import {
 	ProvideSCFeedback,
 	TeacherLeaderboard,
 	CollegeLeaderboard,
+	STPDetailsPage,
+	SuperAdminDashboard,
+	CollegeDetailsPage,
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
 	studentEndpoints,
+	superAdminEndpoints,
 } from 'constants/endpoints';
 import {
 	CollegeAdminRouter,
 	StudentDashboard,
 	CollegeAdminDashboard,
 } from 'components';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 function App() {
 	console.log('COLLEGE ADMIN BASE');
@@ -37,7 +41,6 @@ function App() {
 						path={endpoints.changePasswordPage}
 						element={<ChangePassword />}
 					/>
-
 					<Route path='/college-admin' element={<CollegeAdminRouter />}>
 						<Route index element={<CollegeAdminDashboard />} />
 						<Route
@@ -51,6 +54,9 @@ function App() {
 						<Route path={collegeAdminEndpoints.viewStpList}>
 							<Route path={endpoints.entityType} element={<STPListPage />} />
 						</Route>
+						<Route path={collegeAdminEndpoints.viewDetails}>
+							<Route path={endpoints.entityId} element={<STPDetailsPage />} />
+						</Route>
 					</Route>
 					<Route path='/student' element={<CollegeAdminRouter />}>
 						<Route index element={<StudentDashboard />} />
@@ -58,10 +64,6 @@ function App() {
 							path={studentEndpoints.dashboard}
 							element={<StudentDashboard />}
 						/>
-						{/* <Route
-							path={studentEndpoints.provideFeedbackST}
-							element={<ProvideSTFeedback />}
-	/>*/}
 						<Route
 							path={studentEndpoints.provideFeedbackSC}
 							element={<ProvideSCFeedback />}
@@ -77,6 +79,25 @@ function App() {
 						<Route
 							path={studentEndpoints.collegeLeaderboard}
 							element={<CollegeLeaderboard />}
+						/>
+					</Route>
+					<Route path='/regulator' element={<CollegeAdminRouter />}>
+						<Route index element={<SuperAdminDashboard />} />
+						<Route
+							path={superAdminEndpoints.dashboard}
+							element={<SuperAdminDashboard />}
+						/>
+						<Route
+							path={superAdminEndpoints.teacherLeaderboard}
+							element={<TeacherLeaderboard />}
+						/>
+						<Route
+							path={superAdminEndpoints.collegeLeaderboard}
+							element={<CollegeLeaderboard />}
+						/>
+						<Route
+							path=':collegeId'
+							element={<CollegeDetailsPage />}
 						/>
 					</Route>
 				</Routes>

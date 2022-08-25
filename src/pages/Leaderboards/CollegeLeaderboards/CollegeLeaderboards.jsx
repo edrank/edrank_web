@@ -16,9 +16,21 @@ function CollegeLeaderBoards() {
 	const [requestType, setRequestType] = useState('NATIONAL');
 	const [state, setState] = useState('Delhi');
 	const [city, setCity] = useState('New Delhi');
-	const [states, setStates] = useState([{ value: 'Delhi', label: 'Delhi' }]);
+	let localStates = localStorage.getItem('stateOptions');
+	console.log('localStates: ' + localStates);
+	const [states, setStates] = useState([
+		{ label: 'Delhi', value: 'Delhi' },
+		{
+			label: 'Tamil Nadu',
+			value: 'Tamil Nadu',
+		},
+		{ label: 'Madhya Pradesh', value: 'Madhya Pradesh' },
+	]);
+	let localCities = localStorage.getItem('cityOptions');
 	const [cities, setCities] = useState([
-		{ value: 'New Delhi', label: 'New Delhi' },
+		{ label: 'New Delhi', value: 'New Delhi' },
+		{ label: 'Salem', value: 'Salem' },
+		{ label: 'Indore', value: 'Indore' },
 	]);
 
 	let allColleges = useRef([]);
@@ -43,6 +55,7 @@ function CollegeLeaderBoards() {
 			});
 			console.log('filterOptions STATE');
 			console.log(filterOptions);
+			localStorage.setItem('stateOptions', JSON.parse(filterOptions));
 			setStates([...filterOptions]);
 		}
 		if (filterType === 'REGIONAL') {
@@ -58,6 +71,7 @@ function CollegeLeaderBoards() {
 			});
 			console.log('filterOptions CITY');
 			console.log(filterOptions);
+			localStorage.setItem('cityOptions', JSON.parse(filterOptions));
 			setCities(filterOptions);
 		}
 	};
@@ -73,10 +87,12 @@ function CollegeLeaderBoards() {
 				n: -1,
 			});
 			setLeaderboard(response?.data.data.colleges);
+			console.log('REQUEST TYPEEEE');
+			console.log(requestType);
 			if (requestType === 'NATIONAL') {
 				allColleges.current = response?.data.data.colleges;
-				setStates(getFilterOptions(allColleges.current, 'STATE'));
 				setCities(getFilterOptions(allColleges.current, 'REGIONAL'));
+				setStates(getFilterOptions(allColleges.current, 'STATE'));
 			}
 		}
 		fetchData();
@@ -99,6 +115,8 @@ function CollegeLeaderBoards() {
 			setCity(data.city_filter.value);
 		}
 	};
+
+	const tenantType = localStorage.getItem('tenant_type');
 
 	return (
 		<>
@@ -200,6 +218,11 @@ function CollegeLeaderBoards() {
 								college_name={lb.college_name}
 								submain={`${lb.city}, ${lb.state}`}
 								isCollegeLeaderboard={true}
+								path={
+									tenantType === 'SUPER_ADMIN'
+										? `/regulator/${lb.id}`
+										: ''
+								}
 							/>
 						);
 					})}
@@ -212,6 +235,11 @@ function CollegeLeaderBoards() {
 							main={lb.name}
 							submain={`${lb.city}, ${lb.state}`}
 							isCollegeLeaderboard={true}
+							path={
+								tenantType === 'SUPER_ADMIN'
+									? `/regulator/${lb.id}`
+									: ''
+							}
 						/>
 					);
 				})}

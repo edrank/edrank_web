@@ -15,13 +15,16 @@ export const collegeAdminPath = '/college-admin';
 const addNewCollegeAdmin = '/add-new-college-admin';
 const viewStpList = '/view-all';
 const entityType = ':entityType';
+const viewDetails = '/view-details'
+const entityId = ':entityType/:entityId';
 // const viewTeachers = ':teachers'
 // const viewStudents = ':students'
 // const viewParents = ':parents'
 const collegeAdmins = '/view-all-college-admins'
 
 // super admin
-const superAdminPath = '/super-admin';
+const superAdminPath = '/regulator';
+const collegeId = '/college/:collegeId'
 
 // student
 const studentPath = '/student';
@@ -31,6 +34,10 @@ const provideFeedback1 = '/provide-feedback1';
 const teacherLeaderboard = '/teacher-leaderboard'
 const collegeLeaderboard = '/college-leaderboard'
 
+// // SUPER_ADMIN
+// const superAdminPath='/regulator'
+
+
 // college admin endpoints
 export const collegeAdminEndpoints = addPrefixToPaths(
 	{
@@ -38,7 +45,8 @@ export const collegeAdminEndpoints = addPrefixToPaths(
 		dashboard: dashboard,
 		addNewCollegeAdmin: addNewCollegeAdmin,
 		viewStpList: viewStpList,
-		collegeAdmins: collegeAdmins
+		viewDetails: viewDetails,
+		collegeAdmins: collegeAdmins,
 		// viewTeachers: viewTeachers,
 		// viewStudents: viewStudents,
 		// viewParents: viewParents,
@@ -60,6 +68,15 @@ export const studentEndpoints = addPrefixToPaths(
 	studentPath,
 );
 
+export const superAdminEndpoints = addPrefixToPaths(
+	{
+		base: ['/', dashboard],
+		dashboard: dashboard,
+		teacherLeaderboard: teacherLeaderboard,
+		collegeLeaderboard: collegeLeaderboard,
+	},
+	superAdminPath,
+)
 export default Object.freeze({
 	serverUrl,
 	restUrl,
@@ -71,6 +88,8 @@ export default Object.freeze({
 	notFoundPage,
 	profilePage,
 	entityType,
+	entityId,
+	collegeId,
 	collegeAdmin: collegeAdminEndpoints,
 	student: studentEndpoints,
 });

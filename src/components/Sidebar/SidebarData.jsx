@@ -2,6 +2,7 @@ import {
 	collegeAdminEndpoints,
 	collegeAdminPath,
 	studentEndpoints,
+	superAdminEndpoints,
 } from 'constants/endpoints';
 
 // common icons
@@ -28,7 +29,10 @@ export const SideBarPathIndex = {
 		// '/college-admin/about': 6,
 	},
 	SUPER_ADMIN: {
-		'/super-admin/dashboard': 0,
+		[superAdminEndpoints.base]: 0,
+		[superAdminEndpoints.dashboard]: 0,
+		[superAdminEndpoints.collegeLeaderboard]: 1,
+		[superAdminEndpoints.teacherLeaderboard]: 2,
 	},
 	STUDENT: {
 		[studentEndpoints.base]: 0,
@@ -68,7 +72,7 @@ export const SidebarData = {
 		},
 		{
 			option_name: 'View College Admins',
-			path: collegeAdminPath + '/view-college-admins',
+			path: collegeAdminPath + '/view-all/college_admins',
 			icon: iconCollegeAdmin,
 		},
 	],
@@ -103,6 +107,23 @@ export const SidebarData = {
 		{
 			option_name: 'Teacher Leaderboard',
 			path: studentEndpoints.teacherLeaderboard,
+			icon: iconTeacher,
+		},
+	],
+	SUPER_ADMIN: [
+		{
+			option_name: 'Dashboard',
+			path: superAdminEndpoints.dashboard,
+			icon: iconDashboard,
+		},
+		{
+			option_name: 'College Leaderboard',
+			path: superAdminEndpoints.collegeLeaderboard,
+			icon: iconCollege,
+		},
+		{
+			option_name: 'Teacher Leaderboard',
+			path: superAdminEndpoints.teacherLeaderboard,
 			icon: iconTeacher,
 		},
 	],

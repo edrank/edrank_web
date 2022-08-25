@@ -2,6 +2,7 @@ import './AddNewCollegeAdmin.scss';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { restUrl } from 'constants/endpoints';
+import { FormGenerator } from 'components';
 
 function AddNewCollegeAdmin() {
 	const {
@@ -24,9 +25,24 @@ function AddNewCollegeAdmin() {
 				});
 		} catch (error) {}
 	};
+
+	const formObject = [
+		{
+			inputType: 'text',
+			inputKey: 'name',
+			label: 'Name of the new college admin',
+			required: true,
+		},
+		{
+			inputType: 'email',
+			inputKey: 'email',
+			label: 'Email address of the new college admin',
+			required: true,
+		},
+	];
 	return (
 		<div className='add-new-college-admin-main form-page-main-wrapper'>
-			<form
+			{/* <form
 				className='add-new-college-admin-form'
 				onSubmit={handleSubmit(onSubmit)}
 			>
@@ -58,7 +74,14 @@ function AddNewCollegeAdmin() {
 				<div className='form-div'>
 					<input type='submit' value='Proceed' />
 				</div>
-			</form>
+			</form> */}
+
+			<FormGenerator
+				heading='Add a new college admin'
+				onSubmit={onSubmit}
+				formObject={formObject}
+				formClass='add-new-college-admin-form'
+			/>
 		</div>
 	);
 }

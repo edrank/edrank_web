@@ -51,8 +51,8 @@ export default function LoginPage() {
 		{ value: 'TEACHER', label: 'Teacher' },
 		{ value: 'PARENT', label: 'Parent' },
 		{ value: 'COLLEGE_ADMIN', label: 'College Admin' },
-		{ value: 'HEI', label: 'HEI Authority/Regulators' },
-		{ value: 'SUPER_ADMIN', label: 'Super Admin' },
+		// { value: 'HEI', label: 'Regulator' },
+		{ value: 'SUPER_ADMIN', label: 'Regulator' },
 	];
 
 	const formObject = [
@@ -83,6 +83,7 @@ export default function LoginPage() {
 				formClass='form-wrapper'
 				onSubmit={onSubmit}
 				formObject={formObject}
+				heading = 'Please enter your details'
 			/>
 			{/* <form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-div'>

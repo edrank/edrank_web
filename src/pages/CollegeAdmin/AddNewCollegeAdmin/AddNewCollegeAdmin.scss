@@ -1,11 +1,17 @@
 .add-new-college-admin-main {
 	// background-color: lightblue;
+	height: 100%;
+	background-color: white;
+	box-shadow: 0 2px 20px #dedede;
+	padding: 1.5rem;
+	border-radius: .2rem;
 
 	.add-new-college-admin-form {
 		// background-color: antiquewhite;
 		padding: 1rem 0;
 		// display: flex;
 		gap: 3rem;
+		margin: 0 auto;
 
 		.form-div {
 			margin-top: 0.6rem;
@@ -13,7 +19,7 @@
 			label {
 				font-size: 0.9rem;
 			}
-			input {
+			input:not([type='submit']) {
 				display: block;
 				padding: 0.5rem 1rem;
 				// font-size: 1rem;
@@ -22,16 +28,16 @@
 				width: 100%;
 				max-width: 350px;
 				// margin-left: 10px;
-				background-color: rgb(255, 186, 95);
+				background-color: white;
 				border: 2px solid rgb(180, 180, 180);
-				border-radius: .25rem;
+				border-radius: 0.25rem;
 				color: black;
 			}
-			input[type=submit] {
+			input[type='submit'] {
 				font-weight: bold;
 				// font-size: 1rem;
 				border: none;
-				padding: .6rem 0;
+				padding: 0.6rem 0;
 				text-transform: uppercase;
 			}
 		}

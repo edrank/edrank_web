@@ -10,3 +10,4 @@ export { default as CollegeAdminDashboard } from './CollegeAdminDashboard/Colleg
 export { default as QuestionCard } from './QuestionCardGenerator/QuestionCardGenerator'
 export { default as LeaderboardCard } from './LeaderboardCard/LeaderboardCard'
 export { default as LeaderboardCardTopThree } from './LeaderboardCardTopThree/LeaderboardCardTopThree'
+export { default as DashboardMetricsCard } from './DashboardMetricsCard/DashboardMetricsCard'
