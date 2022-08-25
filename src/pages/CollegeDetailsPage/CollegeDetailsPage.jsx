@@ -16,11 +16,11 @@ function CollegeDetailsPage() {
 				college_id: parseInt(collegeId),
 			});
 			const reponse1 = await makeRequest('get-my-colleges-rank', 'POST', {
-				college_id: parseInt(collegeId),
+				cid: parseInt(collegeId),
 				request_type: 'NATIONAL',
 			});
 			const reponse2 = await makeRequest('get-my-colleges-rank', 'POST', {
-				college_id: parseInt(collegeId),
+				cid: parseInt(collegeId),
 				request_type: 'STATE',
 				state: response?.data.data.college.state,
 			});
