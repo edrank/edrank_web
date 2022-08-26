@@ -25,6 +25,7 @@ import {
 	CollegeAdminRouter,
 	StudentDashboard,
 	CollegeAdminDashboard,
+	TeacherDashboard,
 } from 'components';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -108,7 +109,15 @@ function App() {
 						<Route index element={<StudentDashboard />} />
 						<Route
 							path={teacherEndpoints.dashboard}
-							element={<StudentDashboard />}
+							element={<TeacherDashboard/>}
+						/>
+						<Route
+							path={teacherEndpoints.teacherLeaderboard}
+							element={<TeacherLeaderboard />}
+						/>
+						<Route
+							path={teacherEndpoints.collegeLeaderboard}
+							element={<CollegeLeaderboard />}
 						/>
 					</Route>
 				</Routes>

@@ -89,6 +89,8 @@ export const teacherEndpoints = addPrefixToPaths(
 	{
 		base: ['/', dashboard],
 		dashboard: dashboard,
+		teacherLeaderboard: teacherLeaderboard,
+		collegeLeaderboard: collegeLeaderboard,
 	},
 	teacherPath
 )
