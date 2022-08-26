@@ -41,11 +41,11 @@ export default function LoginPage() {
 			localStorage.setItem('tenant_type', response.data.data.tenant_type);
 			localStorage.setItem('user_info', JSON.stringify(response.data.data.user))
 			console.log('tenant_type', response.data.data.tenant_type);
-			if (response.data.data.user.onboarding_status && response.data.data.user.onboarding_status === "ON_GOING") {
-				navigate(`/onboarding`);
-			} else {
-				navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
-			}
+			// if (response.data.data.user.onboarding_status && response.data.data.user.onboarding_status === "ON_GOING") {
+			// 	navigate(`/onboarding`);
+			// } else {
+			// }
+			navigate(`/${tenantTypeKeyPairMap[response.data.data.tenant_type]}`);
 			
 		}
 		postData();
@@ -88,7 +88,7 @@ export default function LoginPage() {
 				formClass='form-wrapper'
 				onSubmit={onSubmit}
 				formObject={formObject}
-				heading = 'Please enter your details'
+				heading = 'Edrank Login'
 			/>
 			{/* <form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-div'>

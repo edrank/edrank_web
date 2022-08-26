@@ -63,16 +63,15 @@ function ProvidePCFeedback() {
 			});
 		});
 		console.log(formObject);
-		// formObject = [
-		// 	{
-		// 		inputType: 'select',
-		// 		inputKey: 'student_id',
-		// 		label: 'Student',
-		// 		required: true,
-		// 		options: getStudentOptions(),
-		// 	},
-		// 	...formObject,
-		// ];
+		formObject = [
+			...formObject,
+			{
+				inputType: 'textarea',
+				inputKey: 'text_feedback',
+				label: 'Feedback',
+				required: true,
+			},
+		];
 		return formObject;
 	};
 
@@ -119,9 +118,17 @@ function ProvidePCFeedback() {
 	};
 
 	const onSubmit = data => {
-		console.log('data', data);
+		// console.log('data', data);
 		const requestBody = changeToRequiredFormat(data);
-		console.log('requestBody', requestBody);
+		// console.log('requestBody', requestBody);
+		async function postData() {
+			const response = await makeRequest('submit-feedback/PC', 'POST', requestBody)
+			if (response?.status === 200) {
+				document.getElementById('provide-pc-feedback-form').reset();
+			}
+
+		}
+		postData();
 	};
 
 	return (
@@ -138,6 +145,7 @@ function ProvidePCFeedback() {
 					<FormGenerator
 						formObject={getFormObject()}
 						onSubmit={onSubmit}
+						formId='provide-pc-feedback-form'
 						// heading='Please provide your valuable feedback'
 					/>
 				</div>
