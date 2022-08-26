@@ -14,6 +14,7 @@ import {
 	SuperAdminDashboard,
 	CollegeDetailsPage,
 	FeedbackDrives,
+	GrievancePortal,
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
@@ -119,6 +120,10 @@ function App() {
 						<Route
 							path={teacherEndpoints.collegeLeaderboard}
 							element={<CollegeLeaderboard />}
+						/>
+						<Route
+							path={teacherEndpoints.grievancePortal}
+							element={<GrievancePortal />}
 						/>
 					</Route>
 				</Routes>

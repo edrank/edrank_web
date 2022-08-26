@@ -13,4 +13,5 @@ export { default as CollegeLeaderboard } from './Leaderboards/CollegeLeaderboard
 export { default as SuperAdminDashboard } from './SuperAdminDashboard/SuperAdminDashboard'
 export { default as CollegeDetailsPage } from './CollegeDetailsPage/CollegeDetailsPage'
 export { default as FeedbackDrives } from './FeedbackDrives/FeedbackDrives'
+export { default as GrievancePortal } from './GrievancePortal/GrievancePortal'
 

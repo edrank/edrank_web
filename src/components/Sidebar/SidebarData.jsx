@@ -48,6 +48,7 @@ export const SideBarPathIndex = {
 		[teacherEndpoints.dashboard]: 0,
 		[teacherEndpoints.collegeLeaderboard]: 1,
 		[teacherEndpoints.teacherLeaderboard]: 2,
+		[teacherEndpoints.grievancePortal]: 3,
 	},
 };
 
@@ -156,6 +157,11 @@ export const SidebarData = {
 			path: teacherEndpoints.teacherLeaderboard,
 			icon: iconTeacher,
 		},
+		{
+			option_name: 'Grievance Portal',
+			path: teacherEndpoints.grievancePortal,
+			icon: iconTeacher,
+		}
 		// {
 		// }
 	],
