@@ -1,5 +1,6 @@
 import Select from 'react-select';
 import { useForm, Controller } from 'react-hook-form';
+import { Children } from 'react';
 
 function FormGenerator({
 	formClass,
@@ -82,23 +83,25 @@ function FormGenerator({
 					<div key={index} className='form-div'>
 						<label htmlFor={formField.inputKey}>
 							{formField.label}
+							<div className="form-div-container">
 							{formField.options.map((option, index) => (
 								<div className='form-div-inner'>
+									<input
+										type='radio'
+										value={`option_${index + 1}`}
+										// name={formField.inputKey}
+										id={`form${formIndex}-question${formField.inputKey}-option${index}`}
+										{...register(inputKey, { required: formField.required })}
+									/>
 									<label
 										key={index}
 										htmlFor={`form${formIndex}-question${formField.inputKey}-option${index}`}
 									>
-										<input
-											type='radio'
-											value={`option_${index + 1}`}
-											// name={formField.inputKey}
-											id={`form${formIndex}-question${formField.inputKey}-option${index}`}
-											{...register(inputKey, { required: formField.required })}
-										/>
 										{option}
 									</label>
 								</div>
 							))}
+							</div>
 							{/* {formField.required ? (
 								<input
 									type={formField.inputType}
@@ -160,6 +163,9 @@ function FormGenerator({
 					</div>
 				);
 			})}
+
+			{/* {extraChild} */}
+{/* <Children /> */}
 			<div className='form-div'>
 				<input type='submit' value='PROCEED' />
 			</div>

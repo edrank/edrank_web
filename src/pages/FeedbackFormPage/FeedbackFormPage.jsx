@@ -3,6 +3,7 @@ import { FormFieldGenerator, FormGenerator } from 'components';
 import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import "./FeedbackFormPage.scss"
 
 function FeedbackFormPage() {
 	const {
@@ -180,6 +181,10 @@ function FeedbackFormPage() {
 
 	return (
 		<div className='feedback-form-page-main'>
+			<p className='formHeading'>Hi Rishi Dholkheria</p>
+			<p className='formSubHeading'>Provide your true feedbacks for College and Teachers. Your feedback are anonymous and safe with us</p>
+			<div class='hLine'></div>
+			{/* <p className='formSubHeading'>We are happy to have your Feedback</p> */}
 			<FormGenerator formObject={getFormObject()} onSubmit={onSubmit} />
 		</div>
 	);
