@@ -8,7 +8,7 @@ function LeaderboardCard({ rank, main, submain, path }) {
 			<div className='leaderboard-card-main'>
 				<p className='leaderboard-rank'>{rank}</p>
 				<p>
-					{main}{' '}
+					{main}
 					{submain && <span className='leadercard-submain'>({submain})</span>}
 				</p>
 				{/* <p>{submain}</p> */}

@@ -67,7 +67,16 @@ function App() {
 						/>
 					</Route>
 					<Route path='/student' element={<CollegeAdminRouter />}>
-						<Route index element={<StudentDashboard />} />
+						{/* <Route index element={<StudentDashboard />} /> */}
+						<Route index element={<CollegeLeaderboard />} />
+						<Route
+							path={studentEndpoints.collegeLeaderboard}
+							element={<CollegeLeaderboard />}
+						/>
+						<Route
+							path={studentEndpoints.teacherLeaderboard}
+							element={<TeacherLeaderboard />}
+						/>
 						<Route
 							path={studentEndpoints.dashboard}
 							element={<StudentDashboard />}
@@ -80,28 +89,20 @@ function App() {
 							path={studentEndpoints.provideFeedbackST}
 							element={<FeedbackFormPage />}
 						/>
-						<Route
-							path={studentEndpoints.teacherLeaderboard}
-							element={<TeacherLeaderboard />}
-						/>
-						<Route
-							path={studentEndpoints.collegeLeaderboard}
-							element={<CollegeLeaderboard />}
-						/>
 					</Route>
 					<Route path='/regulator' element={<CollegeAdminRouter />}>
-						<Route index element={<SuperAdminDashboard />} />
-						<Route
+						<Route index element={<CollegeLeaderboard />} />
+						{/* <Route
 							path={superAdminEndpoints.dashboard}
 							element={<SuperAdminDashboard />}
+						/> */}
+						<Route
+							path={superAdminEndpoints.collegeLeaderboard}
+							element={<CollegeLeaderboard />}
 						/>
 						<Route
 							path={superAdminEndpoints.teacherLeaderboard}
 							element={<TeacherLeaderboard />}
-						/>
-						<Route
-							path={superAdminEndpoints.collegeLeaderboard}
-							element={<CollegeLeaderboard />}
 						/>
 						<Route path=':collegeId' element={<CollegeDetailsPage />} />
 					</Route>
@@ -109,7 +110,7 @@ function App() {
 						<Route index element={<StudentDashboard />} />
 						<Route
 							path={teacherEndpoints.dashboard}
-							element={<TeacherDashboard/>}
+							element={<TeacherDashboard />}
 						/>
 						<Route
 							path={teacherEndpoints.teacherLeaderboard}

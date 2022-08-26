@@ -79,7 +79,7 @@ function CollegeDetailsPage() {
 			))}
 			<h3>Sentimental Analysis</h3>
 			<div className="sa-graph-wrapper">
-				<SaGraph saData={saData} />
+				<SaGraph saData={saData} chartType='Bar' />
 			</div>
 		</div>
 	);

@@ -53,8 +53,8 @@ function ProvideSCFeedback() {
 			{
 				inputType: 'textarea',
 				inputKey: 'text_feedback',
-				label: 'Feedback (if any)',
-				required: false,
+				label: 'Feedback',
+				required: true,
 			},
 		];
 

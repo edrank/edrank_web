@@ -25,7 +25,7 @@ function LeaderboardCardTopThree({
 								<p>({college_name})</p>
 							</>
 						)}
-						{isCollegeLeaderboard && <p>({submain})</p>}
+						{isCollegeLeaderboard && submain && <p>({submain})</p>}
 					</div>
 				</div>
 			</div>

@@ -39,6 +39,9 @@ const collegeLeaderboard = '/college-leaderboard';
 const teacherPath = '/teacher';
 // const dashboard1 = '/dashboard'
 
+// parent
+const parentPath = '/parent'
+
 
 // // SUPER_ADMIN
 // const superAdminPath='/regulator'
@@ -62,25 +65,26 @@ export const collegeAdminEndpoints = addPrefixToPaths(
 	collegeAdminPath,
 );
 
+// student endpoints
 export const studentEndpoints = addPrefixToPaths(
 	{
-		base: ['/', dashboard],
-		dashboard: dashboard,
+		base: ['/', teacherLeaderboard],
+		// dashboard: dashboard,
+		teacherLeaderboard: teacherLeaderboard,
+		collegeLeaderboard: collegeLeaderboard,
 		provideFeedbackST: provideFeedbackST,
 		provideFeedbackSC: provideFeedbackSC,
 		provideFeedback1: provideFeedback1,
-		teacherLeaderboard: teacherLeaderboard,
-		collegeLeaderboard: collegeLeaderboard,
 	},
 	studentPath,
 );
 
 export const superAdminEndpoints = addPrefixToPaths(
 	{
-		base: ['/', dashboard],
-		dashboard: dashboard,
-		teacherLeaderboard: teacherLeaderboard,
+		base: ['/', collegeLeaderboard],
+		// dashboard: dashboard,
 		collegeLeaderboard: collegeLeaderboard,
+		teacherLeaderboard: teacherLeaderboard,
 	},
 	superAdminPath,
 )
@@ -94,6 +98,14 @@ export const teacherEndpoints = addPrefixToPaths(
 	},
 	teacherPath
 )
+
+export const parentEndpoints = addPrefixToPaths(
+	{
+		base: '/'
+	}
+)
+
+
 
 
 export default Object.freeze({
