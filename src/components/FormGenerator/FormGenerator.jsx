@@ -1,5 +1,6 @@
 import Select from 'react-select';
 import { useForm, Controller } from 'react-hook-form';
+import { Children } from 'react';
 
 function FormGenerator({
 	formClass,
@@ -158,6 +159,9 @@ function FormGenerator({
 					</div>
 				);
 			})}
+
+			{/* {extraChild} */}
+{/* <Children /> */}
 			<div className='form-div'>
 				<input type='submit' value='PROCEED' />
 			</div>

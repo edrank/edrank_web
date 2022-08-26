@@ -37,6 +37,7 @@ const collegeLeaderboard = '/college-leaderboard';
 
 // teacher
 const teacherPath = '/teacher';
+const grievancePortal = '/grievance-portal'
 // const dashboard1 = '/dashboard'
 
 
@@ -91,6 +92,8 @@ export const teacherEndpoints = addPrefixToPaths(
 		dashboard: dashboard,
 		teacherLeaderboard: teacherLeaderboard,
 		collegeLeaderboard: collegeLeaderboard,
+		grievancePortal: grievancePortal,
+
 	},
 	teacherPath
 )
