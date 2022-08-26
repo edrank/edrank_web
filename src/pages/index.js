@@ -16,3 +16,8 @@ export { default as FeedbackDrives } from './FeedbackDrives/FeedbackDrives'
 export { default as OnboardingPage } from './OnboardingPage/OnboardingPage'
 export { default as TeacherLinking } from './OnboardingPage/TeacherLinking'
 export { default as GrievancePortal } from './GrievancePortal/GrievancePortal'
+export { default as ParentHomePage } from './ParentHomePage/ParentHomePage'
+export { default as ProvidePCFeedback } from './ProvidePCFeedback/ProvidePCFeedback'
+export { default as ViewFeedback } from './ViewFeedback/ViewFeedback'
+
+

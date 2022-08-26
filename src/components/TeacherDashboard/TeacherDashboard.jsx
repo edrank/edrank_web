@@ -1,14 +1,14 @@
-import React from 'react';
 import './TeacherDashboard.scss';
 import { makeRequest } from 'services/api';
 import { useEffect, useState } from 'react';
-import { set } from 'react-hook-form';
+// import { set } from 'react-hook-form';
 import {
 	LeaderboardCard,
 	LeaderboardCardTopThree,
-	TopThreeTeachersLayout,
+	SaGraph,
+	// TopThreeTeachersLayout,
 } from 'components';
-import { RankCard } from 'components';
+// import { RankCard } from 'components';
 
 function CollegeAdminDashboard() {
 	const [teachers, setTeachers] = useState([]);
@@ -17,12 +17,36 @@ function CollegeAdminDashboard() {
 	const [rankRegional, setRankRegional] = useState(0);
 	const [rankState, setRankState] = useState(0);
 	const [rankCollege, setRankCollege] = useState(0);
+	const [progressData, setProgressData] = useState({});
+
+	function getprogressOject(data) {
+		let progressObject = {};
+		data.forEach(item => {
+			progressObject[item.drive_id] = item.rank;
+		});
+		console.log('PROGRESSOBJECT');
+		console.log(progressObject);
+		return progressObject;
+	}
 
 	useEffect(() => {
 		async function fetchData() {
 			const response = await makeRequest('get-my-rank/NATIONAL', 'GET');
 			setRankNational(response?.data.data.rank);
 			console.log(response?.data.data);
+		}
+		fetchData();
+	}, []);
+
+	useEffect(() => {
+		async function fetchData() {
+			const teacherId = JSON.parse(localStorage.getItem('user_info')).id;
+			console.log('TEACHER ID: ');
+			console.log(teacherId);
+			const response1 = await makeRequest(`progress-graph/${teacherId}`, 'GET');
+			const progressObject = getprogressOject(response1?.data.data.progress);
+			setProgressData(progressObject);
+			console.log(response1?.data.data.progress);
 		}
 		fetchData();
 	}, []);
@@ -106,10 +130,22 @@ function CollegeAdminDashboard() {
 					/>
 				</div>
 			</div>
+			<div className='teacher-rank-history-graph'>
+				<h2 style={{marginTop: '40px'}}>My Rank History</h2>
+				<div className='sa-graph-wrapper  progress-graph-wrapper'>
+					<SaGraph saData={progressData} chartType='Line' />
+					<p>Drives(drive id)</p>
+					<p>Your rank</p>
+				</div>
+			</div>
 			<div className='topTeachers'>
 				<h2>Top teachers of your college</h2>
 				{teachers.map((teacher, index) => (
-					<LeaderboardCard key={index} rank={teacher.rank} main={teacher.name} />
+					<LeaderboardCard
+						key={index}
+						rank={teacher.rank}
+						main={teacher.name}
+					/>
 				))}
 			</div>
 		</div>

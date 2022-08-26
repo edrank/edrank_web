@@ -17,9 +17,13 @@ import {
 	OnboardingPage,
 	GrievancePortal,
 	TeacherLinking
+	ParentHomePage,
+	ProvidePCFeedback,
+	ViewFeedback,
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
+	parentEndpoints,
 	studentEndpoints,
 	superAdminEndpoints,
 	teacherEndpoints,
@@ -34,10 +38,10 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function App() {
-	console.log('COLLEGE ADMIN BASE');
-	console.log(collegeAdminEndpoints.dashboard);
-	console.log('ENTITY TYPE');
-	console.log(collegeAdminEndpoints.viewStpList);
+	// console.log('COLLEGE ADMIN BASE');
+	// console.log(collegeAdminEndpoints.dashboard);
+	// console.log('ENTITY TYPE');
+	// console.log(collegeAdminEndpoints.viewStpList);
 	return (
 		<div className='App'>
 			<BrowserRouter>
@@ -128,8 +132,27 @@ function App() {
 							element={<CollegeLeaderboard />}
 						/>
 						<Route
+							path={teacherEndpoints.viewFeedback}
+							element={<ViewFeedback />}
+						/>
+						<Route
 							path={teacherEndpoints.grievancePortal}
 							element={<GrievancePortal />}
+						/>
+					</Route>
+					<Route path='/parent' element={<CollegeAdminRouter />}>
+						<Route index element={<CollegeLeaderboard />} />
+						<Route
+							path={parentEndpoints.collegeLeaderboard}
+							element={<CollegeLeaderboard />}
+						/>
+						<Route
+							path={parentEndpoints.teacherLeaderboard}
+							element={<TeacherLeaderboard />}
+						/>
+						<Route
+							path={parentEndpoints.provideFeedback}
+							element={<ProvidePCFeedback />}
 						/>
 					</Route>
 				</Routes>
