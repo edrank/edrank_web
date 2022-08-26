@@ -15,3 +15,6 @@ export { default as SaGraph } from './SaGraph/SaGraph'
 export { default as KbcGraph } from './KbcGraph/KbcGraph'
 
 
+export {default as TeacherDashboard} from './TeacherDashboard/TeacherDashboard'
+export {default as TopThreeTeachersLayout} from './TeacherDashboard/TopThreeTeachersLayout'
+export {default as RankCard} from './TeacherDashboard/RankCard'
