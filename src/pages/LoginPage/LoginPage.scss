@@ -39,6 +39,10 @@
 */
 
 .login-page-main {
-	background: linear-gradient(rgba(0, 0, 0, 0.623), darkslategray);
+	// background: linear-gradient(rgba(0, 0, 0, 0.623), darkslategray);
+	background: url(../../assets/images/login-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 	height: 100vh;
 }

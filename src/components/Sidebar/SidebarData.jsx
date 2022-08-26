@@ -1,6 +1,7 @@
 import {
 	collegeAdminEndpoints,
 	collegeAdminPath,
+	parentEndpoints,
 	studentEndpoints,
 	superAdminEndpoints,
 	teacherEndpoints,
@@ -48,7 +49,14 @@ export const SideBarPathIndex = {
 		[teacherEndpoints.dashboard]: 0,
 		[teacherEndpoints.collegeLeaderboard]: 1,
 		[teacherEndpoints.teacherLeaderboard]: 2,
-		[teacherEndpoints.grievancePortal]: 3,
+		[teacherEndpoints.viewFeedback]: 3,
+		[teacherEndpoints.grievancePortal]: 4,
+	},
+	PARENT: {
+		[parentEndpoints.base]: 0,
+		[parentEndpoints.collegeLeaderboard]: 0,
+		[parentEndpoints.teacherLeaderboard]: 1,
+		[parentEndpoints.provideFeedback]: 2,
 	},
 };
 
@@ -158,11 +166,34 @@ export const SidebarData = {
 			icon: iconTeacher,
 		},
 		{
+			option_name: 'View Feedback',
+			path: teacherEndpoints.viewFeedback,
+			icon: iconFeedback,
+		},
+		{
 			option_name: 'Grievance Portal',
 			path: teacherEndpoints.grievancePortal,
 			icon: iconTeacher,
-		}
+		},
+
 		// {
 		// }
+	],
+	PARENT: [
+		{
+			option_name: 'College Leaderboard',
+			path: parentEndpoints.collegeLeaderboard,
+			icon: iconCollege,
+		},
+		{
+			option_name: 'Teacher Leaderboard',
+			path: parentEndpoints.teacherLeaderboard,
+			icon: iconTeacher,
+		},
+		{
+			option_name: 'Provide Feedback',
+			path: parentEndpoints.provideFeedback,
+			icon: iconFeedback,
+		},
 	],
 };

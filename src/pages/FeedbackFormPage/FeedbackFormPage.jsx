@@ -52,7 +52,7 @@ function FeedbackFormPage() {
 				options: getRadioOptions(question),
 			});
 		});
-		console.log(formObject);
+		// console.log(formObject);
 		formObject = [
 			{
 				inputType: 'select',
@@ -84,21 +84,21 @@ function FeedbackFormPage() {
 	const handleRemoveForm = index => {
 		if (feedbackForms.length > 1) {
 			setFeedbackForms(feedbackForms.filter((_, i) => i !== index));
-			console.log('form removed' + index);
+			// console.log('form removed' + index);
 		} else {
 			toast('You can not remove the last form', { type: 'info' });
 		}
 	};
 
 	useEffect(() => {
-		console.log('useEffect');
+		// console.log('useEffect');
 		async function fetchData() {
 			const response = await makeRequest('feedback-questions/ST', 'POST');
 			const response2 = await makeRequest('get-feedback-teachers', 'POST', {
 				course_id: JSON.parse(localStorage.getItem('user_info')).course_id,
 			});
-			console.log(response?.data.data);
-			console.log(response2?.data.data);
+			// console.log(response?.data.data);
+			// console.log(response2?.data.data);
 			setFeedbackQuestions(response?.data.data.questions);
 			setDriveId(response?.data.data.drive_id);
 			let teachersOpts = [];
@@ -131,18 +131,18 @@ function FeedbackFormPage() {
 		let teacherId = data.teacher.value;
 		// setTeacherId(data.teacher.value);
 		questionIds.pop();
-		console.log('questionIds', questionIds);
+		// console.log('questionIds', questionIds);
 		let questionIdsArray = [];
 		questionIds.map(questionId => questionIdsArray.push(Number(questionId)));
-		console.log('questionIdsArray', questionIdsArray);
+		// console.log('questionIdsArray', questionIdsArray);
 
 		let optionIds = Object.values(data);
 		optionIds.pop();
-		console.log('OPTIONIDs');
-		console.log(optionIds);
+		// console.log('OPTIONIDs');
+		// console.log(optionIds);
 		let optionIdsArray = [];
 		optionIds.map(option => optionIdsArray.push(Number(option.slice(-1))));
-		console.log(optionIdsArray);
+		// console.log(optionIdsArray);
 
 		const requestBody = {
 			drive_id: driveId,
@@ -152,25 +152,26 @@ function FeedbackFormPage() {
 				text_feedback: data.text_feedback,
 			},
 		};
-		console.log('requestBody', JSON.stringify(requestBody));
+		// console.log('requestBody', JSON.stringify(requestBody));
 		return requestBody;
 		// console.log(requestBody);
 	};
 	const onSubmit = data => {
-		console.log('data');
-		console.log(data);
+		// console.log('data');
+		// console.log(data);
 
 		const requestBody = changeToRequiredFormat(data);
-		console.log('requestBody');
-		console.log(requestBody);
-		const response = makeRequest(
-			'android/submit-feedback/ST',
-			'POST',
-			requestBody,
-		);
-		
-
-
+		// console.log('requestBody');
+		async function postData() {
+			// console.log(requestBody);
+			const response = await makeRequest(
+				'android/submit-feedback/ST',
+				'POST',
+				requestBody,
+			);
+			postData();
+			toast('Feedback submitted successfully', { type: 'success' });
+		}
 	};
 
 	// const SubmitForms = e => {

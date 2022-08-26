@@ -1,7 +1,7 @@
 import { FormGenerator } from 'components';
 import { makeRequest } from 'services/api';
 import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import './ProvideFeedbackForm.scss';
 
 function ProvideSCFeedback() {
