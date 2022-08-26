@@ -14,6 +14,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 input,
 button,
 a {
@@ -45,6 +46,7 @@ code {
 
 .form-page-main-wrapper {
 	display: flex;
+
 	.form-wrapper {
 		background: white;
 		padding: 2rem 1.8rem;
@@ -60,10 +62,13 @@ code {
 
 		.form-div {
 			margin: 8px 0;
+
 			h1 {
 				font-size: 1.5rem;
 				text-align: center;
+
 			}
+
 			input {
 				display: block;
 				width: 100%;
@@ -72,6 +77,7 @@ code {
 				border: 1px solid #cccccc;
 				margin-top: 5px;
 			}
+
 			label {
 				font-size: 14px;
 				font-weight: 500;
@@ -81,15 +87,17 @@ code {
 				}
 			}
 
-			& > label > div {
+			&>label>div {
 				margin-top: 5px;
 			}
+
 			input[type='submit'] {
 				font-weight: 700;
 				letter-spacing: 1px;
 				cursor: pointer;
 				margin-top: 20px;
 			}
+
 			// input[type='submit']:hover {
 			// }
 		}
@@ -103,6 +111,7 @@ code {
 .form-div-inner label input[type='radio'] {
 	margin-right: 10px;
 }
+
 .form-div-inner {
 	margin: 5px 0;
 }
@@ -128,6 +137,13 @@ code {
 		margin: 5px 0 5px;
 		padding: 1rem;
 	}
+
+	.form-div-container {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 10px;
+	}
+
 	input[type='submit'] {
 		width: 100%;
 		font-weight: 700;
@@ -138,7 +154,54 @@ code {
 		padding: 9px 10px;
 		background-color: #008eff;
 		border: none;
-		border-radius: 4px;
+		// border-radius: 4px;
 		color: white;
 	}
+
+	.form-div-inner {
+		input[type='radio'] {
+			display: none;
+		}
+
+		label {
+			width: 100%;
+			padding: 0.3rem 0.9rem;
+			// border: 1px solid lightcoral;
+			background-color: rgba(226, 222, 222, 0.693);
+			border-radius: 7px;
+			padding: 10px;
+			color: rgb(126, 126, 126);
+			margin-right: 10px;
+			margin: 8px;
+			display: block;
+		}
+
+		input[type='radio']:checked+label {
+			font-weight: 400;
+			color: white;
+
+
+		}
+	}
+
+	input[type='radio']:checked:nth-of-type(1)+label {
+		background-color: green;
+	}
+
+	input[type='radio']:nth-of-type(2)+label {
+		background-color: yellowgreen;
+	}
+
+	input[type='radio']::nth-of-type(3)+label {
+		background-color: yellow;
+	}
+
+	input[type='radio']:checked:nth-of-type(4)+label {
+		background-color: red;
+	}
+
+	input[type='radio']:checked:nth-of-type(5)+label {
+		background-color: red;
+	}
+
 }
