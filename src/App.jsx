@@ -14,6 +14,7 @@ import {
 	SuperAdminDashboard,
 	CollegeDetailsPage,
 	FeedbackDrives,
+	OnboardingPage
 } from 'pages';
 import endpoints, {
 	collegeAdminEndpoints,
@@ -66,6 +67,10 @@ function App() {
 							element={<FeedbackDrives />}
 						/>
 					</Route>
+					<Route
+						path={'/onboarding'}
+						element={<OnboardingPage />}
+					/>
 					<Route path='/student' element={<CollegeAdminRouter />}>
 						{/* <Route index element={<StudentDashboard />} /> */}
 						<Route index element={<CollegeLeaderboard />} />

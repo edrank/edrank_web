@@ -17,6 +17,7 @@ const viewStpList = '/view-all';
 const entityType = ':entityType';
 const viewDetails = '/view-details'
 const entityId = ':entityType/:entityId';
+const onboardingPage = '/onboarding';
 // const viewTeachers = ':teachers'
 // const viewStudents = ':students'
 // const viewParents = ':parents'
@@ -57,6 +58,7 @@ export const collegeAdminEndpoints = addPrefixToPaths(
 		viewDetails: viewDetails,
 		collegeAdmins: collegeAdmins,
 		feedbackDrives: feedbackDrives,
+		onboardingPage: onboardingPage
 		// viewTeachers: viewTeachers,
 		// viewStudents: viewStudents,
 		// viewParents: viewParents,

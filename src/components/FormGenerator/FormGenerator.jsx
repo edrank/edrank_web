@@ -132,7 +132,9 @@ function FormGenerator({
 							></textarea>
 						</label>
 					</div>
-				) : (
+				) : formField.inputType === 'file' ?(
+					<div className="form-div"><label htmlFor={formField.inputKey}>{formField.label}<input type="file" required name={formField.inputKey} id={formField.inputKey} /></label></div>
+				) :(
 					<div key={index} className='form-div'>
 						<label htmlFor={formField.inputKey}>
 							{formField.label}
