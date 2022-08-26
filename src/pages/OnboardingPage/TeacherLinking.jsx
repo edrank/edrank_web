@@ -4,13 +4,28 @@ import { restUrl } from 'constants/endpoints';
 // import { useState } from 'react';
 // import './LoginPage.scss';
 // import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { tenantTypeKeyPairMap } from 'constants/tenantTypeKeyPairMap';
 import { FormGenerator } from 'components';
 import { makeRequest } from 'services/api';
 
-export default function OnboardingPage() {
+export default function TeacherLinking() {
     let navigate = useNavigate();
+	const [courseName, setCourseName] = useState([]);
+	const [courseDuration, setCourseDuration] = useState([]);
+	const [teacherName, setTeacherName] = useState([]);
+
+
+    useEffect(() => {
+		async function fetchData() {
+			const response = await makeRequest('get-teacher-linking-data', 'GET');
+			console.log(response?.data.data);
+			// setUser(response?.data.data.profile);
+		}
+		fetchData();
+	}, []);
+
 
     const formObject = [
         {

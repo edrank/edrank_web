@@ -17,12 +17,12 @@ const viewStpList = '/view-all';
 const entityType = ':entityType';
 const viewDetails = '/view-details'
 const entityId = ':entityType/:entityId';
-const onboardingPage = '/onboarding';
 // const viewTeachers = ':teachers'
 // const viewStudents = ':students'
 // const viewParents = ':parents'
 const collegeAdmins = '/view-all-college-admins'
 const feedbackDrives = '/feedback-drives'
+const linking = '/linking'
 
 // super admin
 const superAdminPath = '/regulator';
@@ -59,7 +59,7 @@ export const collegeAdminEndpoints = addPrefixToPaths(
 		viewDetails: viewDetails,
 		collegeAdmins: collegeAdmins,
 		feedbackDrives: feedbackDrives,
-		onboardingPage: onboardingPage
+		linking: linking,
 		// viewTeachers: viewTeachers,
 		// viewStudents: viewStudents,
 		// viewParents: viewParents,
