@@ -117,18 +117,18 @@ function ProvideSCFeedback() {
 		const requestBody = changeToRequiredFormat(data);
 		async function postData() {
 			console.log('requestBODY: ', requestBody);
-			// const response = await makeRequest(
-			// 	'submit-feedback/SC',
-			// 	'POST',
-			// 	requestBody,
-			// );
+			const response = await makeRequest(
+				'submit-feedback/SC',
+				'POST',
+				requestBody,
+			);
 
-			// if (response?.status === 200) {
-			// 	document.getElementById('provide-sc-feedback-form').reset();
-			// }
+			if (response?.status === 200) {
+				document.getElementById('provide-sc-feedback-form').reset();
+			}
 
-			// console.log('RESPONSE');
-			// console.log(response);
+			console.log('RESPONSE');
+			console.log(response);
 		}
 		postData();
 	};

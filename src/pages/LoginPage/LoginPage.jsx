@@ -88,7 +88,7 @@ export default function LoginPage() {
 				formClass='form-wrapper'
 				onSubmit={onSubmit}
 				formObject={formObject}
-				heading = 'Please enter your details'
+				heading = 'Edrank Login'
 			/>
 			{/* <form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-div'>

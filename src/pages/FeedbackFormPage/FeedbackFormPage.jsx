@@ -62,6 +62,12 @@ function FeedbackFormPage() {
 				options: teachers,
 			},
 			...formObject,
+			{
+				inputType: 'textarea',
+				inputKey: 'text_feedback',
+				label: 'Feedback',
+				required: true,
+			},
 		];
 
 		return formObject;
@@ -169,9 +175,9 @@ function FeedbackFormPage() {
 				'POST',
 				requestBody,
 			);
-			postData();
 			toast('Feedback submitted successfully', { type: 'success' });
 		}
+		postData();
 	};
 
 	// const SubmitForms = e => {
@@ -182,7 +188,8 @@ function FeedbackFormPage() {
 
 	return (
 		<div className='feedback-form-page-main'>
-			<p className='formHeading'>Hi Rishi Dholkheria</p>
+			<p className="formHeading">{'Hi, ' + JSON.parse(localStorage.getItem('user_info')).name}</p>
+			{/* <p className='formHeading'>Hi Rishi Dholkheria</p> */}
 			<p className='formSubHeading'>Provide your true feedbacks for College and Teachers. Your feedback are anonymous and safe with us</p>
 			<div class='hLine'></div>
 			{/* <p className='formSubHeading'>We are happy to have your Feedback</p> */}
