@@ -39,10 +39,10 @@ export const SideBarPathIndex = {
 	},
 	STUDENT: {
 		[studentEndpoints.base]: 0,
-		// [studentEndpoints.dashboard]: 0,
-		[studentEndpoints.collegeLeaderboard]: 0,
-		[studentEndpoints.teacherLeaderboard]: 1,
-		[studentEndpoints.provideFeedback]: 2,
+		[studentEndpoints.dashboard]: 0,
+		[studentEndpoints.provideFeedback]: 1,
+		[studentEndpoints.collegeLeaderboard]: 2,
+		[studentEndpoints.teacherLeaderboard]: 3,
 	},
 	TEACHER: {
 		[teacherEndpoints.base]: 0,
@@ -99,20 +99,10 @@ export const SidebarData = {
 		},
 	],
 	STUDENT: [
-		// {
-		// 	option_name: 'Dashboard',
-		// 	path: studentEndpoints.dashboard,
-		// 	icon: iconDashboard,
-		// },
 		{
-			option_name: 'College Leaderboard',
-			path: studentEndpoints.collegeLeaderboard,
-			icon: iconCollege,
-		},
-		{
-			option_name: 'Teacher Leaderboard',
-			path: studentEndpoints.teacherLeaderboard,
-			icon: iconTeacher,
+			option_name: 'Dashboard',
+			path: studentEndpoints.dashboard,
+			icon: iconDashboard,
 		},
 		{
 			option_name: 'Provide Feedback',
@@ -131,13 +121,23 @@ export const SidebarData = {
 				},
 			],
 		},
+		{
+			option_name: 'College Leaderboard',
+			path: studentEndpoints.collegeLeaderboard,
+			icon: iconCollege,
+		},
+		{
+			option_name: 'Teacher Leaderboard',
+			path: studentEndpoints.teacherLeaderboard,
+			icon: iconTeacher,
+		},
 	],
 	SUPER_ADMIN: [
-		// {
-		// 	option_name: 'Dashboard',
-		// 	path: superAdminEndpoints.dashboard,
-		// 	icon: iconDashboard,
-		// },
+		{
+			option_name: 'Dashboard',
+			path: superAdminEndpoints.dashboard,
+			icon: iconDashboard,
+		},
 		{
 			option_name: 'College Leaderboard',
 			path: superAdminEndpoints.collegeLeaderboard,
@@ -155,17 +155,7 @@ export const SidebarData = {
 			path: teacherEndpoints.dashboard,
 			icon: iconDashboard,
 		},
-		{
-			option_name: 'College Leaderboard',
-			path: teacherEndpoints.collegeLeaderboard,
-			icon: iconCollege,
-		},
-		{
-			option_name: 'Teacher Leaderboard',
-			path: teacherEndpoints.teacherLeaderboard,
-			icon: iconTeacher,
-		},
-		{
+    {
 			option_name: 'View Feedback',
 			path: teacherEndpoints.viewFeedback,
 			icon: iconFeedback,
@@ -175,7 +165,6 @@ export const SidebarData = {
 			path: teacherEndpoints.grievancePortal,
 			icon: iconTeacher,
 		},
-
 		// {
 		// }
 	],

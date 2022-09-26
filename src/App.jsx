@@ -16,6 +16,7 @@ import {
 	FeedbackDrives,
 	OnboardingPage,
 	GrievancePortal,
+	TeacherLinking
 	ParentHomePage,
 	ProvidePCFeedback,
 	ViewFeedback,
@@ -71,11 +72,11 @@ function App() {
 							path={collegeAdminEndpoints.feedbackDrives}
 							element={<FeedbackDrives />}
 						/>
+						<Route path={collegeAdminEndpoints.linking}>
+							<Route path={endpoints.linking} element={<TeacherLinking />} />
+						</Route>
 					</Route>
-					<Route
-						path={'/onboarding'}
-						element={<OnboardingPage />}
-					/>
+					
 					<Route path='/student' element={<CollegeAdminRouter />}>
 						{/* <Route index element={<StudentDashboard />} /> */}
 						<Route index element={<CollegeLeaderboard />} />

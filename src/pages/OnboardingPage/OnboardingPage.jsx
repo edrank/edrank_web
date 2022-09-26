@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { tenantTypeKeyPairMap } from 'constants/tenantTypeKeyPairMap';
 import { FormGenerator } from 'components';
 import { makeRequest } from 'services/api';
+import { useState } from 'react';
 
 export default function OnboardingPage() {
     let navigate = useNavigate();
+    const [loader, setLoader] = useState("")
 
     const formObject = [
         {
@@ -77,16 +79,10 @@ export default function OnboardingPage() {
 
     const onSubmit = data => {
         console.log('data');
-        <ThreeDots 
-        height="80" 
-        width="80" 
-        radius="9"
-        color="#4fa94d" 
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClassName=""
-        visible={true}
-         />
+	    
+	    navigate(`/linking`);
+        
+        setLoader("Yes")
     };
 
     return (
@@ -97,6 +93,18 @@ export default function OnboardingPage() {
                 formObject={formObject}
                 heading='Please enter college details'
             />
+
+            {loader = "Yes" ? 
+                <ThreeDots 
+                height="80" 
+                width="80" 
+                radius="9"
+                color="#4fa94d" 
+                ariaLabel="three-dots-loading"
+                visible={true}
+                 /> : null
+            }
+
         </div>
     )
 }
